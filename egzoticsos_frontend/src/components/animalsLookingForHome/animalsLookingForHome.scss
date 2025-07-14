@@ -1,0 +1,41 @@
+.animalsLookingForHome{
+    width: 100%;
+    display: flex;
+    padding: 100px 0px;
+    justify-content: center;
+    background-color: #282BAB;
+    .innerWrapper{
+        width: 1320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+        }
+        p{
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 32px;
+            color: #F8F7F7;
+        }
+        h2{
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 46px;
+            color: #F8F7F7;
+            .highlight{
+                color: #FF9C00;
+            }
+        }
+        .cardsContainer{
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 50px;
+            
+        }
+    }
+}

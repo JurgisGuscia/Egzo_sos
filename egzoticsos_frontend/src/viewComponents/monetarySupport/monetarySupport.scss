@@ -1,0 +1,439 @@
+.monetarySupportPage{
+    width: 100%;
+    .monetarySupportHeader{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 0px;
+        background-color: #F8F7F7;
+        .innerWrapper{
+            width: 1320px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 40px 0px;
+            gap: 20px;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                &:after{
+                    content: " ";
+                    width: 450px;
+                    height: 350px;
+                    position: absolute;
+                    top: -50px;
+                    right: -50px;
+                    z-index: 3;
+                    background: rgba(248,247,247, 0.25);
+                    backdrop-filter: blur(2px);
+                    -webkit-backdrop-filter: blur(2px);
+                }
+            }
+            h1{
+                font-weight: 600;
+                font-size: 46px;
+                line-height: 54px;
+                color: #110F0F;
+                @media only screen and (max-width: 1319px) {
+                    z-index: 4;
+                }
+            }
+            p{
+                width: 560px;
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #584C4D;
+                @media only screen and (max-width: 1319px) {
+                    z-index: 4;
+                }
+            }
+            
+            
+            .walletImage{
+                width: 330px;
+                height: 244px;
+                position: absolute;
+                right: 135px;
+                top: -20px;
+                z-index: 3;
+                transform: rotate(-1deg);
+                @media only screen and (max-width: 1319px) {
+                    z-index: 1;
+                    right: 0px;
+                    top: 50px;
+                }
+            }
+            .turtleImage{
+                width: 354px;
+                height: 144px;
+                position: absolute;
+                right: 0px;
+                top: 90px;
+                z-index: 4;
+                @media only screen and (max-width: 1319px) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .paramosBudai{
+        width: 100%;
+        background-color: #282BAB;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 200px 0px;
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            h4{
+                font-weight: 300;
+                font-size: 24px;
+                line-height: 32px;
+                color: #F8F7F7;
+            }   
+            h2{
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 46px;
+                color: #F8F7F7;
+                margin-bottom: 80px;
+            }
+            .donationMethodsContainer{
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                gap: 24px;
+                position: relative;
+                img{
+                    width: 424px;
+                    height: 534px;
+                    &.bankImage{
+                        @media only screen and (max-width: 1319px) {
+                            width: 250px;
+                            height: 300px;
+                            position: absolute;
+                            right: 10px;
+                            top: -380px;
+                        }
+                    }    
+                }
+                
+                .bankTransfer{
+                    width: 872px;
+                    height: 534px;
+                    background-color: #ffffff;
+                    border-radius: 8px;
+                    padding: 32px 56px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 688px;
+                        height: auto;
+                    }
+                    h3{
+                        font-weight: 500;
+                        font-size: 30px;
+                        line-height: 38px;
+                        color: #000000;
+                    }
+                    .bankTransferInfo{
+                        width: 462px;
+                        height: 204px;
+                        padding: 16px 20px;
+                        border-radius: 8px;
+                        background-color: #edf3ff;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                            
+                        .bankTransferInfoLine{
+                            width: 100%;
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                            color: #000000;
+                            
+                            span{
+                                font-weight: 600;
+                                font-size: 20px;
+                                line-height: 28px;
+                            }
+                        }
+                        
+                    }
+                    p{
+                        font-family: "Hind Siliguri", sans-serif;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #000000;
+                        margin-top: 10px;
+                        width: 600px;
+                        @media only screen and (max-width: 1319px) {
+                            width: 100%;
+                        }
+                    }
+                    ul{
+                        
+                        li{
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                            color: #000000;
+                            width: 700px;
+                            @media only screen and (max-width: 1319px) {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                .otherSupportMethod{
+                    width: 424px;
+                    height: 615px;
+                    background-color: #ffffff;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-items: flex-start;
+                    align-items: flex-start;
+                    padding: 40px 24px;
+                    gap: 10px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 48%;
+                        height: auto;
+                    }
+                    img{
+                        width: 150px;
+                        height: 150px;
+                        @media only screen and (max-width: 1319px) {
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+                    h3{
+                        font-weight: 500;
+                        font-size: 30px;
+                        line-height: 38px;
+                        color: #110F0F;
+                        @media only screen and (max-width: 1319px) {
+                            font-size: 26px;
+                        }
+                    }
+                    p{
+                        font-family: "Hind Siliguri", sans-serif;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #584C4D;
+                        @media only screen and (max-width: 1319px) {
+                            font-size: 18px;
+                        }                        
+                    }
+                    button{
+                        width: 242px;
+                        height: 60px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: solid 3px #3B41F0;
+                        border-radius: 4px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #3B41F0;
+                    }
+                } 
+            }
+        }
+    }
+    .supportResults{
+        width: 100%;
+        background-image: url("~/public/img/connector2.png");
+        background-position: top;
+        background-repeat: repeat-x;
+        background-size: contain;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 250px 0px 150px 0px;
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            h4{
+                font-weight: 300;
+                font-size: 24px;
+                line-height: 32px;
+                color: #110F0F;
+            }   
+            h2{
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 46px;
+                color: #110F0F;
+            }
+            p{
+                width: 800px;
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #110F0F;
+                margin-top: 30px;
+                @media only screen and (max-width: 1319px) {
+                    width: 688px;
+                }
+            }
+            .supportResultsCardContainer{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-items: flex-start;
+                .supportResultsCard{
+                    margin-top: 50px;
+                    width: 312px;
+                    height: 165px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    svg{
+                        width: 100px;
+                        height: 100px;
+                    }
+                    p{
+                        width: 250px;
+                        text-align: center;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #110F0F;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .otherSupportMethods{
+        width: 100%;
+        
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 2;
+        position: relative;   
+        padding: 150px 0px;
+        background-color: rgba(252, 193, 99, 1);
+
+        &:before{
+            content: " ";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            min-height: 100%;
+            z-index: 3;
+            filter: brightness(60%) opacity(10%);
+            background-image: url("~/public/img/transparentbg1.png");
+            background-position: center;
+            background-size: cover;
+        }
+        h1{
+            
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 46px;
+            color: #110F0F;
+            width: 732px;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            width: 264px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #FF9C00;
+            border-radius: 4px;
+            color: #F7F7F8;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+            border: none;
+            z-index: 4;
+            svg{
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .otherSupportMethodCard{
+            width: 648px;
+            height: 394px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            z-index: 22;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            padding: 48px 40px;
+            h2{
+                width: 408px;
+                font-weight: 500;
+                font-size: 30px;
+                line-height: 38px;
+                color: #110F0F;
+            }
+            p{
+                width: 408px;
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #584C4D;
+            }
+            .rabbitPhoto{
+                width: 225px;
+                height: 243px;
+                position: absolute;
+                right: -10px;
+                top: 180px;
+            }
+            .mousePhoto{
+                width: 394px;
+                height: 286px;
+                transform: rotate(35deg);
+                position: absolute;
+                right: -180px;
+                top: 160px;
+            }
+        }
+    }
+}

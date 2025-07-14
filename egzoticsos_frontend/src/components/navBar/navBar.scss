@@ -1,0 +1,1016 @@
+.navBarWrapper{
+    width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        height: 150px;
+        z-index: 99;
+        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);    
+
+   
+    .topNavBar{
+        display: flex;
+        width: 100%;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        &:before{
+            background-color: #f8f7f7f7;
+            z-index: 1;
+            content: " ";
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 60px;
+        }
+        .innerWrapper{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 2;
+            width: 1320px;
+            
+            height: 100%;
+            position: relative;
+            .mainLogo{
+                z-index: 3;
+                position: absolute; 
+                left: 0; 
+                top: 20px;
+                width: 120px;
+            }
+            .navBarTopInfoContainer{
+                list-style: none;
+                height: 100%;
+                position: relative;
+                top: 7px;
+                li{
+
+                    display: inline-flex;
+                    align-items: center;
+                    height: 100%;
+                    margin-left: 20px;
+                    color: #2A2F8D;
+                    &:hover{
+                        cursor: default;
+                    }
+                    img{
+                       width: 20px; 
+                       margin-right: 5px;
+                       filter: invert(17%) sepia(22%) saturate(6487%) hue-rotate(227deg) brightness(95%) contrast(100%);
+                    }
+                }
+                .phoneMenuIcon{
+                    display: none;
+                }
+            }
+        }   
+    }
+    .bottomNavBar{
+
+        background-color: #ffffff;
+        display: flex;
+        width: 100%;
+        height: 90px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .innerWrapper{
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 2;
+            width: 1320px;
+            height: 100%;
+            ul{
+
+                list-style: none;
+                height: 100%;
+                position: relative;
+                top: 8px;
+                li{
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    a{
+                        text-decoration: none;
+                        color: #584C4D;
+                        font-size: 16px;
+                        font-weight: 400;
+                        padding: 16px 12px;
+                        height: 85px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &:hover{
+                            color: #110F0F;
+                            text-shadow:0px 0px 1px #110F0F;
+                            border-bottom: solid #FF9C00 5px;
+                        }
+                        svg{
+                            margin-left: 10px;
+                        }
+                        &.active{
+                            color: #110F0F;
+                            text-shadow:0px 0px 1px #110F0F;
+                            border-bottom: solid #FF9C00 5px;
+                        }
+                    }
+                    .show{
+                        display: flex;
+                    }
+                    .hide{
+                        display: none!important;
+                    }
+                    #gyvunuDropDown{
+                        position: absolute;
+                        top: 80px;
+                        background-color: #ffffff;
+                        width: 300px;
+                        height: 308px;
+                        display: flex;
+                        left: -245px; 
+                        right: 0px; 
+                        margin-left: auto; 
+                        margin-right: auto;
+                        transform: translate(-95px, 10px);
+                        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);    
+                        ul{
+                            list-style: none;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            width: 100%;
+                            height: 300px;
+                            li{
+                                display: flex;
+                                width: 100%;
+                                justify-content: flex-start;
+                                align-items: center;
+                                border-bottom: solid 1px #F0EEEE;
+                                a{
+                                    color: #110F0F;
+                                    text-decoration: none;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    display: flex;
+                                    width: 100%;
+                                    height: 55px;
+                                    justify-content: flex-start;
+                                    align-items: center;
+
+                                    &:hover{
+                                        border: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #paramosDropDown{
+                        position: absolute;
+                        background-color: #ffffff;
+                        top: 80px;
+                        width: 300px;
+                        height: 173px;
+                        display: flex;
+                        left: -245px; 
+                        right: 0; 
+                        margin-left: auto; 
+                        margin-right: auto;
+                        transform: translate(21px, 10px);
+                        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);    
+                        ul{
+                            list-style: none;
+                            display: flex;
+                            flex-flow: column nowrap;
+                            width: 100%;
+                            
+                            li{
+                                display: flex;
+                                width: 100%;
+                                justify-content: flex-start;
+                                align-items: center;
+                                border-bottom: solid 1px #F0EEEE;
+
+                                height: 55px;
+                                a{
+                                    color: #110F0F;
+                                    text-decoration: none;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    display: flex;
+                                    width: 100%;
+                                    height: 55px;
+                                    justify-content: flex-start;
+                                    align-items: center;
+
+                                    &:hover{
+                                        border: none;
+                                    }
+                                    &.indented{
+                                        padding-left: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    #prieziuriosDropDown{
+                        position: absolute;
+                        background-color: #ffffff;
+                        top: 90px;
+                        height: 380px;
+                        width: 1320px;
+                        display: flex;
+                        margin-left: auto; 
+                        margin-right: auto;
+                        transform: translateX(-22.7%);
+                        z-index: 99;
+                        justify-content: space-between;
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                        img{
+                     
+                            height: 287px;
+                        }
+                        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+                        .animalListsContainer{
+                            width: 850px;
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                            gap: 20px;
+                            align-items: flex-start;
+                            .animaListColumnContainer{
+                                display: flex;
+                                flex-flow: column nowrap;
+                                justify-content: flex-start;
+                                align-items: flex-start;
+                                width: 225px;
+                                height: 100%;
+                                &.pauksciai{
+                                    width: 140px!important;
+                                    a{
+                                        &:hover{
+                                            border: none;
+                                        }
+                                    }
+                                }
+                                &.kita{
+                                    width: 140px!important;
+                                }
+                                &.ropliai{
+                                    width: 260px!important;
+                                }
+                                .animalListColumnHeader{
+                                    width: 100%;
+                                    height: 40px;
+                                    display: flex;
+                                    align-items: center;
+                                    padding-left: 5px;
+                                    gap: 10px;
+                                    font-size: 16px;
+                                    span{
+                                        display: flex;
+                                        height: 30px;
+                                        align-items: center;
+                                        a{
+                                            display: inline-flex;
+                                            height: 10px;
+                                            width: 80px;
+                                        }
+                                        &:hover{
+                                            cursor: default;
+                                        }
+                                    }
+                                }
+                                .animalListColumn{
+                                    height: 100%;
+                                    width: 100%;
+                                    a{
+                                        font-size: 16px;
+                                        height: 20px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        padding-left: 20px;     
+                                        &:hover{
+                                            border: none;
+                                        }   
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }   
+    }  
+    @media only screen and (max-width: 1319px) {
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        height: 90px;
+        z-index: 99;
+        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);    
+        .topNavBar{
+            width: 100%;
+            background-color: #f8f7f7f7;
+            height: 20px;
+            position: relative;
+            &:before{
+                display: none;
+            }
+            .innerWrapper{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                z-index: 2;
+                width: 688px;
+                height: 100%;
+                position: relative;
+                .mainLogo{
+                    z-index: 3;
+                    position: absolute; 
+                    top: 0px;
+                    width: 90px;
+                    height: 90px;
+                }
+                .navBarTopInfoContainer{
+                    list-style: none;
+                    height: 50px;
+                    position: absolute;
+                    top: 30px;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 5px;
+                    li{
+                        display: flex;
+                        .navBarTopInfoField1{
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                        }                        
+                        color: #2A2F8D;
+                        &:hover{
+                            cursor: default;
+                        }
+                        .navBarTopInfoField2{
+                            display: none;
+                        }
+                        img{
+                            width: 32px; 
+                            margin-right: 5px;
+                            filter: invert(17%) sepia(22%) saturate(6487%) hue-rotate(227deg) brightness(95%) contrast(100%);
+                        }
+                        &.phoneMenuIcon{
+                            display: flex;
+                            position: relative;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                            .phoneMenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 99;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding-left: 16px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            height: 64px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            height: 64px;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .phoneMenuNotActive{
+                                display: none;
+                            }
+                            .supportSubmenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 100;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                flex-direction: column;
+                                .backFromSupportButton{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                }   
+                                .supportMenuHeader{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    line-height: 32px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: default;
+                                    }
+                                }
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding: 16px 20px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        .mobileNavigationLinkSpan{
+                                            margin-left: 10px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .supportSubmenuNotActive{
+                                display: none;
+                            }
+                            .animalSubmenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 100;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                flex-direction: column;
+                                .backFromSupportButton{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                }   
+                                .supportMenuHeader{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    line-height: 32px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: default;
+                                    }
+                                }
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding: 16px 20px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        .mobileNavigationLinkSpan{
+                                            margin-left: 10px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .animalSubmenuNotActive{
+                                display: none;
+                            }
+                        }
+                    }
+                    
+                }
+            }   
+        }
+        .bottomNavBar{
+            height: 70px;
+            .innerWrapper{
+                display: none;
+                
+            }   
+        } 
+    }
+
+    @media only screen and (max-width: 687px) {
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        height: 72px;
+        z-index: 99;
+        box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -webkit-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);
+        -moz-box-shadow: 0px 3px 6px 1px rgba(67,26,7,0.26);    
+        .topNavBar{
+            width: 100%;
+            background-color: #fff;
+            height: 20px;
+            position: relative;
+            &:before{
+                display: none;
+            }
+            .innerWrapper{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                z-index: 2;
+                width: 375px;
+                height: 100%;
+                position: relative;
+                .mainLogo{
+                    z-index: 3;
+                    position: absolute; 
+                    top: 5px;
+                    width: 62px;
+                    height: 62px;
+                }
+                .navBarTopInfoContainer{
+                    list-style: none;
+                    width: 300px;
+                    height: 52px;
+                    position: absolute;
+                    top: 10px;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 20px;    
+                    li{
+                        display: flex;
+                        .navBarTopInfoField1{
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                            display:none;
+                        }                        
+                        color: #2A2F8D;
+                        &:hover{
+                            cursor: default;
+                        }
+                        .navBarTopInfoField2{
+                            display: none;
+                        }
+                        img{
+                            width: 32px; 
+                            margin-right: 5px;
+                            filter: invert(17%) sepia(22%) saturate(6487%) hue-rotate(227deg) brightness(95%) contrast(100%);
+                        }
+                        &.phoneMenuIcon{
+                            display: flex;
+                            position: relative;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                            .phoneMenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 99;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding-left: 16px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            height: 64px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            height: 64px;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .phoneMenuNotActive{
+                                display: none;
+                            }
+                            .supportSubmenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 100;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                flex-direction: column;
+                                .backFromSupportButton{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                }   
+                                .supportMenuHeader{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    line-height: 32px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: default;
+                                    }
+                                }
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding: 16px 20px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        .mobileNavigationLinkSpan{
+                                            margin-left: 10px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .supportSubmenuNotActive{
+                                display: none;
+                            }
+                            .animalSubmenuActive{
+                                display: flex;
+                                position: absolute;
+                                width: 375px;
+                                height: 522px;
+                                z-index: 100;
+                                top: 60px;
+                                right: -1px;
+                                background-color: #fff;
+                                box-shadow: 0px 3px 5.4px 0px #431A0740;
+                                flex-direction: column;
+                                .backFromSupportButton{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: pointer;
+                                    }
+                                }   
+                                .supportMenuHeader{
+                                    height: auto;
+                                    margin: 0px;
+                                    padding: 16px 20px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    gap: 10px;
+                                    border-bottom: solid 1px #F0EEEE;
+                                    font-weight: 600;
+                                    font-size: 24px;
+                                    line-height: 32px;
+                                    color: #110F0F;
+                                    &:hover{
+                                        cursor: default;
+                                    }
+                                }
+                                .mobileNavitaionLinkContainer{
+                                    width: 100%;
+                                    height: 100%;
+                                    list-style: none;
+                                    margin: 0px;
+                                    padding: 0px;
+                                    .mobileNavigationLink{
+                                        height: auto;
+                                        margin: 0px;
+                                        padding: 16px 20px;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        gap: 10px;
+                                        border-bottom: solid 1px #F0EEEE;
+                                        .mobileNavigationLinkSpan{
+                                            margin-left: 10px;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
+
+                                        a{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                        .mobileNavigationLabel{
+                                            display: flex;
+                                            justify-content: flex-start;
+                                            align-items: center;
+                                            gap: 10px;
+                                            width: 88%;
+                                            font-weight: 400;
+                                            font-size: 16px;
+                                            line-height: 24px;
+                                            color: #110F0F;
+                                        }
+                                    }
+                                }
+                            }
+                            .animalSubmenuNotActive{
+                                display: none;
+                            }
+                        }
+                    }                    
+                }
+            }   
+        }
+        .bottomNavBar{
+            height: 70px;
+            .innerWrapper{
+                display: none;
+                
+            }   
+        } 
+    }
+}
+
+
+
+

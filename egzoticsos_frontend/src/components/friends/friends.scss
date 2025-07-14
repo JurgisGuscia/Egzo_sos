@@ -1,0 +1,129 @@
+.friendsContainer{
+    width: 100%;
+    height: 650px;
+    background-color: #F8F7F7;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1319px) {
+        height: auto;
+    }
+    @media only screen and (max-width: 687px) {
+        padding-bottom: 200px;
+    }
+    .friendsInnerWrapper{
+        margin-top: 40px;
+        width: 1320px;
+        height: 65%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+            height: auto;
+        }
+        @media only screen and (max-width: 687px) {
+            width: 343px;
+        }
+        h3{
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 32px;
+            color: #110f0f;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                font-size: 20px;
+                line-height: 28px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+
+            }
+        }
+        h2{
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 46px;
+            color: #110f0f;
+            width: 700px;
+            margin-bottom: 50px;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                font-size: 30px;
+                line-height: 38px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+        .friendsCarouselContainer{
+            width: 100%;
+            height: 322px;
+            #smallFriendsCarousel{
+                display: none;
+            }
+            @media only screen and (max-width: 1319px) {
+                width: 680px;
+                height: auto;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+                #bigFriendsCarousel{
+                    display: none;
+                }
+                #smallFriendsCarousel{
+                    display: unset;
+                }
+            }
+
+
+
+            
+            .carousel{
+                @media only screen and (max-width: 1319px) {
+                    width: 680px;
+                    height: 550px;
+                }
+
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                }
+                .carousel-indicators{
+                    button{ 
+                        background-color: #2A2F8D;
+                        width: 24px;
+                        height: 4px;
+                        border-radius: 5px;
+                        position: relative;
+                        top: -50px;
+                        @media only screen and (max-width: 687px) {
+                            top: 150px;
+                        }
+                    }
+                }
+            }
+            .friendsCarouselSlideContainer{
+                width: 100%;
+                height: 350px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                gap: 20px;
+                align-items: flex-start;  
+                @media only screen and (max-width: 1319px) {
+                    width: 680px;
+                    height: auto;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                }                   
+            }
+        }
+    }
+}

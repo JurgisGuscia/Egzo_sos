@@ -1,0 +1,368 @@
+.homePageSearchContainer{
+    width: 100%;
+    height: 770px;
+    background-color: rgba(42, 47, 141, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (max-width: 1319px) {
+        height: auto;
+        padding-bottom: 90px;
+    }  
+    
+    &:before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: " ";
+        background-image: url("~/public/img/transparentbg1.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        mix-blend-mode:color-burn;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+         
+    } 
+    &:after{
+        position: absolute;
+        content: " ";
+        z-index: 3;
+        width: 2100px;
+        height: 2000px;
+        background-image: url("~/public/img/bg1accent.png");
+        background-position: 850px -400px;
+        background-size: 1500px;
+        background-repeat: no-repeat;
+        @media only screen and (max-width: 1319px) {
+            background-position: 595px -305px;
+            background-size: 1200px;
+        }  
+        @media only screen and (max-width: 687px) {
+            background-position: 680px -260px;
+            background-size: 805px 1200px;
+        }  
+
+    }    
+    .homePageSearchContainerInnerWrapper{
+        width: 1320px;
+        z-index: 4;
+        
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+            
+        }
+        @media only screen and (max-width: 687px) {
+            width: 343px;
+        }
+        
+        .homePageSearchContainerHeading{
+            width: 660px;
+            margin-top: 150px;
+            z-index: 8;
+            @media only screen and (max-width: 1319px) {
+                width: 510px;
+                margin-top: 100px;
+            }
+            
+            &:before{
+                
+                @media only screen and (max-width: 1319px) {
+                    content: " ";
+                    z-index: 4;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    background: linear-gradient(270deg, rgba(42, 47, 141, 0.4) 30.19%, #2A2F8D 94.26%);
+                    ;
+                }
+            }
+            h1{
+                
+                color: rgba(248, 247,247,1);
+                font-weight: 600;
+                font-size: 80px;
+                line-height: 80px;
+                margin-bottom: 30px;
+                @media only screen and (max-width: 1319px) {
+                    font-weight: 600;
+                    font-size: 68px;
+                    line-height: 76px;
+                    z-index: 8;
+                    position: relative;
+                }  
+                @media only screen and (max-width: 687px) {
+                    font-size: 40px;
+                    line-height: 48px;
+                    text-align: center;
+                    width: 343px;
+                }
+                span{
+                    color: rgba(255, 156, 0, 1);
+                    
+                }
+            }
+            p{
+                font-family: "Hind Siliguri", sans-serif;
+                color: rgba(240, 238, 238, 1);
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                @media only screen and (max-width: 1319px) {
+                    position: relative;
+                    z-index: 8;
+                }  
+                @media only screen and (max-width: 687px) {
+                    font-size: 16px;
+                    line-height: 24px;
+                    text-align: center;
+                    width: 343px;
+                }
+            }
+        }
+        .searchFormContainer{
+            
+            width: 100%;
+            height: 109px;
+            background-color: rgba(255,255,255,1);
+            border-radius: 8px;
+            margin-top: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            @media only screen and (max-width: 1319px) {
+                position: relative;
+                z-index: 8;
+                height: auto;
+                padding: 24px 22px;
+                margin-top: 60px;
+            }  
+            @media only screen and (max-width: 687px) {
+                
+            }
+            form{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                @media only screen and (max-width: 1319px) {
+                    flex-flow:row wrap;
+                    gap: 20px;
+                }  
+                @media only screen and (max-width: 687px) {
+                    flex-direction: column;
+                }
+                .separator{
+                    width: 1px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    height: 70px;
+                    border: solid #DED9D9 1px;
+                    
+                    &.lastSeparator{
+                        @media only screen and (max-width: 1319px) {
+                            display: none;    
+                        } 
+                        @media only screen and (max-width: 687px) {
+                            display: none;
+                        }
+                    }
+                    @media only screen and (max-width: 687px) {
+                        display: none;
+                    }
+                }
+               .petTypeSectionContainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 179px;
+                    height: 56px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 280px;
+                        height: 56px;   
+                        
+                    } 
+                    @media only screen and (max-width: 687px) {
+                        border-bottom: solid 2px #DED9D9;
+                        padding-left: 10px;
+                    }
+                    label{
+                        font-family: "Hind Siliguri", sans-serif;
+                        color: rgba(88,76,77,1);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    select{
+                        width: 100%;
+                        height: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: rgba(17,15,15,1);
+                        border: none;
+                        outline: none;
+                        transform: translateX(-5px);
+                        @media only screen and (max-width: 687px) {
+                            width: 270px;
+                        }
+                    }
+                } 
+                .petBreedContainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 279px;
+                    height: 56px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 280px;
+                        height: 56px;   
+                    } 
+                    @media only screen and (max-width: 687px) {
+                        border-bottom: solid 2px #DED9D9;
+                        padding-left: 10px;
+                    }
+                    label{
+                        font-family: "Hind Siliguri", sans-serif;
+                        color: rgba(88,76,77,1);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    select{
+                        width: 100%;
+                        height: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: rgba(17,15,15,1);
+                        border: none;
+                        outline: none;
+                        transform: translateX(-5px);
+                        @media only screen and (max-width: 687px) {
+                            width: 270px;
+                        }
+                    }
+                } 
+                .petCategoryContainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 173px;
+                    height: 56px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 280px;
+                        height: 56px;   
+                    } 
+                    @media only screen and (max-width: 687px) {
+                        border-bottom: solid 2px #DED9D9;
+                        padding-left: 10px;
+                    }
+                    label{
+                        font-family: "Hind Siliguri", sans-serif;
+                        color: rgba(88,76,77,1);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    select{
+                        width: 100%;
+                        height: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: rgba(17,15,15,1);
+                        border: none;
+                        outline: none;
+                        transform: translateX(-5px);
+                        @media only screen and (max-width: 687px) {
+                            width: 270px;
+                        }
+                    }
+                }
+                .petSexContainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 125px;
+                    height: 56px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 280px;
+                        height: 56px;   
+                    } 
+                    @media only screen and (max-width: 687px) {
+                        border-bottom: solid 2px #DED9D9;
+                        padding-left: 10px;
+                    }
+                    label{
+                        font-family: "Hind Siliguri", sans-serif;
+                        color: rgba(88,76,77,1);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    select{
+                        width: 100%;
+                        height: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: rgba(17,15,15,1);
+                        border: none;
+                        outline: none;
+                        transform: translateX(-5px);
+                        @media only screen and (max-width: 687px) {
+                            width: 270px;
+                        }
+                    }
+                }
+                .petAlignmentContainer{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 200px;
+                    height: 56px;
+                    label{
+                        font-family: "Hind Siliguri", sans-serif;
+                        color: rgba(88,76,77,1);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    select{
+                        width: 100%;
+                        height: 32px;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: rgba(17,15,15,1);
+                        border: none;
+                        outline: none;
+                        transform: translateX(-5px);
+                    }
+                }
+               .searchButton{
+                width: 280px;
+                height: 64px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: rgba(255, 255, 255, 1);
+                background-color: rgba(255, 156, 0, 1);
+                border: none;
+                border-radius: 4px;
+                
+                gap: 8px;
+                @media only screen and (max-width: 1319px) {
+                    width: 100%;
+                    
+                } 
+                &:hover{
+                    cursor: pointer;
+                }
+               }
+            }
+        }
+    }
+}

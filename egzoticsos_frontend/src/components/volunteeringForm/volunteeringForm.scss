@@ -1,0 +1,286 @@
+.volunteeringFormPage{
+    width: 100%;
+    .volunteeringFormHeader{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 180px 0px;
+        @media only screen and (max-width: 687px) {
+            padding: 50px 0px 200px 0px;
+        }
+        >.innerWrapper{
+            width: 1320px;
+            position: relative;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            h2{
+                font-weight: 600;
+                font-size: 46px;
+                line-height: 54px;
+                color: #110F0F;
+                @media only screen and (max-width: 1319px) {
+                    width: 500px;
+                    font-size: 38px;
+                    z-index: 5;
+                    position: relative;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
+                    font-size: 30px;
+                    line-height: 38px;
+                }
+            }
+            p{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #110F0F;
+                @media only screen and (max-width: 1319px) {
+                    width: 430px;
+                    font-size: 18px;
+                    z-index: 5;
+                    position: relative;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+            img{
+                position: absolute;
+                right: 0px;
+                top: -150px;
+                @media only screen and (max-width: 1319px) {
+                    z-index: 1;
+                    width: 350px;
+                    top: 0px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 300px;
+                    top: 120px;
+                }
+            }
+        }
+    }
+    .formContainer{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px 0px;
+        background-color: #282BAB;
+        >.innerWrapper{
+            width: 1320px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            .volunteeringForm{
+                width: 100%;
+                background-color: #fff;
+                border-radius: 16px;
+                padding: 45px 80px 80px 80px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 30px;
+                @media only screen and (max-width: 687px) {
+                    padding: 45px 20px;
+                }
+                .submitFormButton{
+                    padding: 16px 32px;
+                    background-color: #FF9C00;
+                    color: #FFF;
+                    border-radius: 4px;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px;
+                    border: none;
+                    @media only screen and (max-width: 687px) {
+                        width: 192px;
+                        padding: 0px;
+                        height: 56px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+                }
+                .defaultInfoSection{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    height: auto;
+                    h3{
+                        font-weight: 300;
+                        font-size: 24px;
+                        line-height: 32px;
+                        color: #2A2F8D;
+                        border-bottom: solid 1px #F0EEEE;
+                        height: 40px;
+                        margin-bottom: 20px;
+                        
+                    }
+                    .fullWidthInputContainer{
+                        width: 100%;
+                        display: flex;
+                        height: auto;
+                        flex-direction: column;
+                        margin-bottom: 40px;
+                        label{
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #413939;
+                            margin-bottom: 15px;
+                            @media only screen and (max-width: 687px) {
+                                width: 100%;
+                                font-size: 12px;
+                                line-height: 22px;
+                            }
+                        }
+                        textarea{
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #413939;
+                            width: 100%;
+                            height: 56px;
+                            border-radius: 4px;
+                            border: solid 1px #9F9193;
+                            padding: 14px 16px;
+                            height: 150px;
+                            resize: none;
+                            
+                        }
+                        p{
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #413939;
+                            margin-bottom: 15px;
+                            @media only screen and (max-width: 687px) {
+                                width: 100%;
+                                font-size: 12px;
+                                line-height: 22px;
+                            }
+                        }
+                        .checkBoxContainer{
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-items: flex-start;
+                            align-items: center;
+                            gap: 5px;
+                            height: 30px;
+                            >label{
+                                padding: 0px;
+                                margin:0px;
+                            }
+                        }
+                        .timeInput{
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #413939;
+                            width: 100%;
+                            height: 56px;
+                            border-radius: 4px;
+                            border: solid 1px #9F9193;
+                            padding: 14px 16px;
+                        }
+                        ::placeholder {
+                            color: #9F9193;
+                            opacity: 1;
+                        }
+                        .acceptTerms{
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #413939;
+                            @media only screen and (max-width: 687px) {
+                                width: 100%;
+                                font-size: 12px;
+                                line-height: 22px;
+                            }
+                        }
+                    }
+                    .defaultInfoSectionFieldsContainer{
+                        width: 100%;
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                        align-items: flex-start;
+
+                        .defaultInputField{
+                            width: 560px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            gap: 15px;
+                            label{
+                                font-weight: 600;
+                                font-size: 16px;
+                                line-height: 24px;
+                                color: #413939;
+                                @media only screen and (max-width: 687px) {
+                                    width: 100%;
+                                    font-size: 12px;
+                                    line-height: 22px;
+                                }
+                            }
+                            input{
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 24px;
+                                color: #413939;
+                                width: 100%;
+                                height: 56px;
+                                border-radius: 4px;
+                                border: solid 1px #9F9193;
+                                padding: 14px 16px;
+                                
+                            }
+                            ::placeholder {
+                                color: #9F9193;
+                                opacity: 1;
+                              }
+                            p{
+                                font-family: "Hind Siliguri", sans-serif;
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 24px;
+                                color: #9F9193;
+                                a{
+                                    text-decoration: underline;
+                                    font-family: "Hind Siliguri", sans-serif;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    color: #9F9193;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+     }
+}

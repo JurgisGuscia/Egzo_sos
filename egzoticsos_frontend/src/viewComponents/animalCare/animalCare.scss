@@ -1,0 +1,209 @@
+.animalCarePage{
+    width: 100%;
+    .animalCareHeader{
+        width: 100%;
+        background-color: #F8F7F7;
+        display: flex;
+        justify-content: center;
+        height: 500px;
+        @media only screen and (max-width: 687px) {
+            height: 500px;            
+        }
+        .innerWrapper{
+            width: 1320px;
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                overflow: hidden;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+                position: relative;
+                align-items: flex-start;
+            }
+            .animalCareHeaderLeftSide{
+                width: 560px;
+                h2{
+                    font-weight: 600;
+                    font-size: 46px;
+                    line-height: 54px;
+                    color: #110f0f;
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                        font-size: 30px;
+                        line-height: 38px;
+                        margin-top: 100px;
+                    }
+                }
+                p{
+                    font-family: "Hind Siliguri", sans-serif;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 28px;
+                    color: #110f0f;
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+            }
+            .animalCareHeaderRightSide{
+                
+                position: relative;
+                @media only screen and (max-width: 1319px) {
+                    width: 200px;
+                    height: 400px;  
+                 } 
+                 @media only screen and (max-width: 687px) {
+                    position: absolute;
+                }
+                img{
+                    width: 491px;
+                    height: 491px;   
+                    @media only screen and (max-width: 1319px) {
+                       position: absolute;
+                       z-index: 1;  
+                       right: -50px;
+                       top: 50px;
+                       width: 400px;
+                       height: 400px;  
+                    }    
+                    @media only screen and (max-width: 687px) {
+                        width: 300px;
+                        height: 300px;  
+                        right: -200px;
+                        top: 160px;
+                    }             
+                }
+                &:after{
+                    content: " ";
+                    z-index: 33;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background: none;
+                    transform: translateX(-100%);
+                    background: linear-gradient(90deg, rgba(248, 247, 247, 0) 63.76%, rgba(248, 247, 247, 0.356225) 83.49%, #F8F7F7 100.76%);
+                    @media only screen and (max-width: 1319px) {
+                        right: -181px;
+                        top: 50px;  
+                    } 
+                    @media only screen and (max-width: 687px) {
+                        right: -345px;
+                        top: 50px; 
+                    }   
+                }
+            }
+        }
+    }
+    .animalCareContent{
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #282BAB;
+        padding: 100px 0px;
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            .animalCareSearchContainer{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                height: 200px;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 20px;
+                h4{
+                    font-weight: 500;
+                    font-size: 30px;
+                    line-height: 38px;
+                    color: #FFFFFF;
+                }
+                .animalCareSearchMarkContainer{
+                    width: 100%;
+                    display:flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    gap: 10px;
+                    @media only screen and (max-width: 687px) {
+                        flex-flow: row wrap;
+                    }
+                    .animalCareSearchMark{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1px 10px;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #110F0F;
+                        background-color: #ffffff;
+                        border-radius: 16px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    .active{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 1px 10px;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #ffffff;
+                        background-color: #FF9C00;
+                    }
+                }
+               
+                .animalCareSearchInput{
+                    width: 424px;
+                    height: 56px;
+                    border-radius:  4px;
+                    padding: 14px 16px;
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    outline: none;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #9F9193;
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                    }
+                }
+            }
+            .animalCareCardContainer{
+                margin-top: 50px;
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 24px;
+                @media only screen and (max-width: 1319px) {
+                    width: 688px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

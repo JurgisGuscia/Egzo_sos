@@ -1,0 +1,89 @@
+.animalCareCard{
+    width: 424px;
+    height: 541px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 24px 40px;
+    @media only screen and (max-width: 1319px) {
+        width: 330px;
+        height: 541px;
+    }
+    &:hover{ 
+        cursor: pointer;
+    }
+    img{
+        width: 344px;
+        height: 293px;
+        object-fit: contain;
+        @media only screen and (max-width: 1319px) {
+            width: 280px;
+            height: 293px;
+        }
+    }
+    .tagsContainer{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        gap: 10px;
+        .tag{
+            background-color: #F0EEEE;
+            display: flex;
+            padding: 1px 10px;
+            border-radius: 22px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color:#110F0F;
+            @media only screen and (max-width: 1319px) {
+                font-size: 11px;
+                line-height: 13px;
+            }
+        }
+        
+    }
+    h4{
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 38px;
+        color: #110F0F;
+        @media only screen and (max-width: 1319px) {
+            font-size: 20px;
+            line-height: 21px;
+        }
+    }
+    p{
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        color: #110f0f;
+        margin-bottom: 20px;
+        @media only screen and (max-width: 1319px) {
+            font-size: 14px!important;
+            line-height: 15px;
+        }
+    }
+    .animalCareLink{
+        width: 195px;
+        height: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        color: #3B41F0;
+        margin-bottom: 20px;
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

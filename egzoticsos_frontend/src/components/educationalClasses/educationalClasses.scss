@@ -1,0 +1,214 @@
+.educationalClassesContainer{
+    width: 100%;
+    height: 770px;
+    background-color: #282BAB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+    @media only screen and (max-width: 1319px) {
+        height: auto;
+        padding-top: 150px;
+    }
+    .educationalClassesInnerWrapper{
+        width: 1320px;
+        height: 65%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+            z-index: 4;
+        }
+        @media only screen and (max-width: 687px) {
+            width: 343px;
+        }
+        .imageGradientEffect{
+            &:after{
+                content: " ";
+                position: absolute;
+                position: absolute;
+                left: -360px;
+                top: -210px;
+                width: 1200px;
+                height: 850px;
+                z-index: 2;  
+                background: radial-gradient(circle at 54% 50%, rgba(40, 43, 171, 0.01) 0%, rgba(40, 43, 171, 1) 37%, rgba(40, 43, 171, 1) 100%, rgba(40, 43, 171, 1) 100%);
+                @media only screen and (max-width: 1319px) {
+                    z-index: 3;
+                    width: 1200px;
+                    height: 700px;
+                    top: 75px;
+                    left: -300px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 1200px;
+                    height: 700px;
+                    top: 150px;
+                    left: -480px;
+                }
+            }
+        }   
+        .educationalIguana{
+            position: absolute;
+            z-index: 5;
+            transform: scaleX(-80%) scaleY(80%) rotate(-7deg);
+            right: -830px;
+            top: -300px;
+            @media only screen and (max-width: 1319px) {
+                transform: scaleX(-35%) scaleY(35%) rotate(-7deg);
+                right: -640px;
+                top: -440px;
+            }
+            @media only screen and (max-width: 687px) {
+
+                right: -640px;
+                top: -470px;
+            }
+        }
+        .blurredKids{
+            position: absolute;
+            left: -20px;
+            top: 50px;
+            width: 700px;
+            height: 600px;
+            background: rgb(40,43,171);
+            z-index: 1;
+            @media only screen and (max-width: 1319px) {
+                z-index: 2;
+                width: 450px;
+                height: auto;
+                top: 400px;
+                left: 100px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 400px;
+                top: 470px;
+                left: -50px;
+            }
+        }
+        .educationalClassesBanner{
+            width: 848px;
+            height: 458px;
+            background-color: #f8f7f7;
+            border-radius: 8px;
+            z-index: 2;
+            padding: 71px 56px;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                margin-bottom: 300px;
+                z-index: 4;
+                height: auto;
+                padding: 50px 30px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            h3{
+                font-weight: 300;
+                font-size: 24px;
+                line-height: 32px;
+                color: #110f0f;
+                width: 688px;
+                @media only screen and (max-width: 1319px) {
+                    width: 560px;
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+                
+            }
+            h1{
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 46px;
+                color: #110f0f;
+                width: 688px;
+                margin-bottom: 30px;
+                @media only screen and (max-width: 1319px) {
+                    width: 560px;
+                    font-size: 30px;
+                    line-height: 38px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
+                    font-size: 24px;
+                    line-height: 32px;
+                }
+            }
+            p{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #584C4D;
+                width: 715px;
+                margin-bottom: 30px;
+                @media only screen and (max-width: 1319px) {
+                    width: 560px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+            .educationClassesButtonContainer{
+                display: flex;
+                justify-content: flex-start;
+                gap: 20px;
+                @media only screen and (max-width: 687px) {
+                    flex-direction: column;
+                }
+                .readMoreButton{
+                    width: 232px;
+                    height: 64px;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #3B41F0;
+                    border-radius:4px;
+                    border: solid 3px #3B41F0;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px; 
+                    @media only screen and (max-width: 687px) {
+                        width: 192px;
+                        height: 46px;
+                        font-size: 14px;
+                        line-height: 24px; 
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    } 
+                }
+                .phoneNumberContainer{
+                    width: 264px;
+                    height: 64px;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #FF9C00;
+                    border-radius:4px;
+                    color: #ffffff;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px;  
+                    @media only screen and (max-width: 687px) {
+                        width: 192px;
+                        height: 46px;
+                        font-size: 14px;
+                        line-height: 24px; 
+                        >svg{
+                            width: 19px;
+                            margin-right: 5px;
+                        }
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

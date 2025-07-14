@@ -1,0 +1,44 @@
+.pageNumberDisplay{
+    width: 40px;
+    height: 40px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-family: "Hind Siliguri", sans-serif;
+
+    font-weight:  400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #110F0F;
+    border: solid 1px #9F9193;
+    @media only screen and (max-width: 687px) {
+        width: 30px;
+        height: 30px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+.activePageNumberDisplay{
+    width: 40px;
+    height: 40px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DEE9FF;
+    border: solid 1px #282BAB;
+    color: #282BAB;
+    font-weight:  600;
+    font-size: 16px;
+    line-height: 24px;
+    &:hover{
+        cursor: pointer;
+    }
+    @media only screen and (max-width: 687px) {
+        width: 30px;
+        height: 30px;
+    }
+}

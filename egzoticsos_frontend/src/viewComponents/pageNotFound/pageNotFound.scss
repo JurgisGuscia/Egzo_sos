@@ -1,0 +1,72 @@
+.pageNotFoundPage{
+    width: 100%;
+
+    .notFoundContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 0px;
+        background-color: #F8F7F7;
+        .innerWrapper{
+            width: 1320px;
+            height: 732px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            gap: 20px;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+               
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+                padding: 64px 24px;
+            }
+            .pageNotFoundImage{
+                @media only screen and (max-width: 1319px) {
+                    width: 568px;
+                   
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                }
+            }
+            h1{
+                font-size: 46px;
+                font-weight: 600;
+                line-height: 54px;
+                text-align: center;
+            }
+            p{
+                font-family: "Hind Siliguri", sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 28px;
+                text-align: center;
+                @media only screen and (max-width: 687px) {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+            a{
+                text-decoration: none;
+                width: 237px;
+                height: 60px;
+                padding: 16px 32px 16px 32px;       
+                border-radius: 4px;
+                background-color: #FF9C00;
+                display: flex;
+                justify-content: content;
+                align-items: center;
+                color: #F7F7F8;
+                font-weight: 600;
+                line-height: 28px;
+                text-align: center;
+                font-size: 20px;
+            }
+        }
+    }
+}

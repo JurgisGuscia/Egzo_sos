@@ -1,0 +1,420 @@
+.companyIntro{
+    width: 100%;
+    height: 1800px;
+    position: relative;
+    @media only screen and (max-width: 1319px) {
+        height: auto;
+    }
+    .transitionFromCallToAction{
+        width: 100%;
+        height: 90px;
+        background-image: url("~/public/img/connector.png");
+        background-position: bottom;
+        background-size: contain;
+        position: relative;
+        background-repeat: repeat-x;
+        display: flex;
+        justify-content: flex-end;
+        @media only screen and (max-width: 1319px) {
+            background-size: contain;
+            background-position: bottom;
+            background-repeat: repeat-x;
+        }
+        @media only screen and (max-width: 687px) {
+            background-size: contain auto;
+            background-position: bottom;
+            background-repeat: repeat-x;
+        }
+    }
+    .companyIntroContainer{
+        width: 100%;
+        height: 1710px;
+        background-color: #282BAB;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        @media only screen and (max-width: 1319px) {
+            height: auto;
+            padding-bottom: 50px;
+        }
+        @media only screen and (max-width: 687px) {
+            overflow: clip;
+            overflow-y: visible;
+        }
+       
+        .companyIntroInnerWrapper{
+            
+            width: 1320px;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            position: relative;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                height: 100%;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            .hangingMouse{
+                width: 560px;
+                height: 350px;
+                transform: scaleX(-100%);
+                position: absolute;
+                right: -460px;
+                top: -230px;
+                @media only screen and (max-width: 1319px) {
+                    width: 400px;
+                    height: 250px;
+                    right: -180px;
+                    top: -170px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 300px;
+                    height: auto;
+                    right: -180px;
+                    top: -70px;
+                }
+            }
+            .becomeVolunteerContainer{
+                width: 1053px;
+                height: 516px;
+                background-color: #ffffff;
+                border-radius: 12px;
+                padding: 80px 287px 64px 64px;
+                margin-top: 130px;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                position: relative;
+                @media only screen and (max-width: 1319px) {
+                    width: 688px;
+                    height: auto;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                    padding: 40px 24px 100px 24px;
+                }
+                h5{
+                    width: 642px;
+                    font-weight: 300;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #110f0f;
+                    @media only screen and (max-width: 1319px) {
+                        width: 574px;
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;                        
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+                }
+                h3{
+                    width: 642px;
+                    font-weight: 600;
+                    font-size: 38px;
+                    line-height: 46px;
+                    color: #110f0f;
+                    margin-bottom: 25px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 550px;
+                        font-size: 30px;
+                        line-height: 38px;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                        font-size: 24px;
+                        line-height: 32px;
+                    }
+                }
+                p{
+                    width: 642px;
+                    font-family: "Hind Siliguri", sans-serif;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 28px;
+                    color: #584C4D;
+                    margin-bottom: 25px;
+                    @media only screen and (max-width: 1319px) {
+                        width: 574px;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+                a{
+                    display: block;
+                    width: 222px;
+                    height: 60px;
+                    padding: 16px 32px;
+                    background-color: #FF9C00;
+                    color: #ffffff;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px;
+                    text-decoration: none;
+                    border-radius: 4px;
+                    @media only screen and (max-width: 687px) {
+                        width: 159px;
+                        height: 54px;
+                        font-size: 14px;
+                        line-height: 22px;
+                        padding: 0px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+                img{
+                    
+                    &.kidPhoto{
+                        width: 450px;
+                        height: auto;
+                        position: absolute;
+                        transform: rotate(10deg);
+                        right: -240px;
+                        @media only screen and (max-width: 1319px) {
+                            width: 340px;
+                            height: auto;
+                            right: 10px;
+                            top: 480px;
+                        }
+                        @media only screen and (max-width: 687px) {
+                            width: 255px;
+                            height: auto;
+                            right: -70px;
+                            top: 598px;
+                            
+                        }
+                    }
+                    &.photoFrame{
+                        width: 610px;
+                        height: 610px;
+                        position: absolute;
+                        transform: rotate(15deg);
+                        right: -335px;
+                        top: -90px;
+                        @media only screen and (max-width: 1319px) {
+                            width: 510px;
+                            height: 410px;
+                            right: -90px;
+                            top: 380px;
+                            
+                        }
+                        @media only screen and (max-width: 687px) {
+                            width: 350px;
+                            height: auto;
+                            right: -130px;
+                            top: 500px;
+                        }
+                    }
+                }
+            }
+            .companyAnimalStatusCardContainer{
+                width: 100%;
+                height: 172px;
+                margin-top: 170px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                @media only screen and (max-width: 1319px) {
+                    margin-top: 270px;
+                    flex-flow: row wrap;
+                    height: auto;
+                    gap: 19px;
+                }
+                .companyAnimalStatusCard{
+                    width: 245px;
+                    height: 172px;
+                    border-radius: 16px;
+                    padding: 40px;
+                    background-color: #fee0aa;
+                    text-align: center;
+                    @media only screen and (max-width: 1319px) {
+                        width: 334px;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 162px;
+                        padding: 0px;
+                        height: 98px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;                        
+                    }
+                    h3{
+                        font-weight: 600;
+                        font-size: 46px;
+                        line-height: 54px;
+                        color: #2a2f8d;
+                        @media only screen and (max-width: 687px) {
+                            
+                            font-size: 30px;
+                            line-height: 38px;
+                        }
+                    }
+                    h4{
+                        font-weight: 300;
+                        font-size: 24px;
+                        line-height: 32px;
+                        color: #2a2f8d;
+                        @media only screen and (max-width: 687px) {
+                           
+                            font-size: 20px;
+                            line-height: 28px;
+                        }
+                    }   
+                    &.accentBg{
+                        background-color: #DEE9FF;
+                    }
+                    .loadingInfo{
+                        width: 50px;
+                        height: 50px;
+                    }
+                    &.widerStatusCard{
+                        @media only screen and (max-width: 1319px) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .additionalCallToActionCardContainer{
+                margin-top: 170px;
+                width: 100%;
+                height: 400px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                @media only screen and (max-width: 1319px) {
+                    height: auto;
+                    flex-flow: row wrap;
+                    gap: 80px;
+                }
+                
+                .additionalCallToActionCard{
+                    width: 648px;
+                    height: 398px;
+                    padding: 40px 40px;
+                    background-color: #ffffff;
+                    border-radius: 8px;
+                    position: relative;
+                    @media only screen and (max-width: 1319px) {
+                        width: 100%;
+                    }
+                    h3{
+                        font-weight: 500;
+                        font-size: 30px;
+                        line-height: 38px;
+                        color: #110f0f;
+                        width: 350px;
+                        margin-bottom: 20px;
+                        @media only screen and (max-width: 687px) {
+                            font-size: 24px;
+                            line-height: 32px;
+                            width: 200px;
+                        }
+                    }
+                    p{
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #110f0f;
+                        width: 408px;
+                        font-family: "Hind Siliguri", sans-serif;
+                        margin-bottom: 20px;
+                        @media only screen and (max-width: 687px) {
+                            font-size: 16px;
+                            line-height: 24px;
+                            width: 250px;
+                        }
+                    }
+                    .phoneNumberContainer{
+                        width: 264px;
+                        height: 64px;
+                        border-radius: 4px;
+                        border: solid 3px #3B41F0; 
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        color: #3B41F0;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        @media only screen and (max-width: 687px) {
+                            width: 192px;
+                            height: 56px;
+                            font-size: 14px;
+                            line-height: 22px;
+                            >svg{
+                                width: 24px;
+                            }
+                        }
+                    }
+                    .lookForPetScrollButton{
+                        width: 264px;
+                        height: 64px;
+                        border-radius: 4px;
+                        border: solid 3px #3B41F0; 
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        color: #3B41F0;
+                        font-weight: 600;
+                        font-size: 20px;
+                        line-height: 28px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        @media only screen and (max-width: 687px) {
+                            width: 192px;
+                            height: 56px;
+                            font-size: 14px;
+                            line-height: 22px;
+                            >svg{
+                                width: 24px;
+                            }
+                        }
+                    }
+                    img{
+                        &.parrotImage{
+                            width: 240px;
+                            transform:scaleX(-100%) rotate(-16deg);
+                            position: absolute;
+                            top: -30px;
+                            right: 10px;
+                            @media only screen and (max-width: 687px) {
+                                width: 190px;
+                                top: -50px;
+                                right: -60px;
+                            }
+                        }
+                        &.deguImmage{
+                            width: 330px;
+                            transform:rotate(6deg);
+                            position: absolute;
+                            top: -50px;
+                            right: -40px;
+                            @media only screen and (max-width: 687px) {
+                                width: 240px;
+                                top: -40px;
+                                right: -120px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

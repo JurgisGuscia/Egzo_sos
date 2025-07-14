@@ -1,0 +1,278 @@
+a{
+    text-decoration: none;
+    .animalCard{
+        width: 312px;
+        height: 380px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 3px 4px 5.2px 0px #2A32C040;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        @media only screen and (max-width: 1319px) {
+            width: 336px;  
+        }
+        @media only screen and (max-width: 687px) {
+            width: 160px;
+            height: 256px;
+        }
+        &:hover{
+            cursor: pointer;
+            box-shadow: 0px 0px 18.3px 0px #FF9C00CC;
+            
+            .animalCardInfoDisplay{
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                top: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                z-index: 20;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                @media only screen and (max-width: 687px) {
+                    display: none;
+                }
+                .animalCardInfoDisplayHeader{
+                    width: 312px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 90px;
+                    text-align: center;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px;
+                    color: #110F0F;
+                    margin: 0px;
+                    
+                }
+                .animalCardInfoLine{
+                    width: 100%;
+                    height: 72px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding: 8px 24px;
+                    border-top: solid 1px #f0eeee;
+                    .header{
+                        font-family: "Hind Siliguri", sans-serif;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #584C4D;
+                        
+                    }
+                    .infoText{
+                        font-family: "Hind Siliguri", sans-serif;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 28px;
+                        color: #110F0F;
+                        
+                    }
+                    
+                }
+                .animalCardSplitInfoLine{
+                    width: 100%;
+                    height: 72px;
+                    padding: 8px 24px;
+                    border-top: solid 1px #f0eeee;
+                    border-bottom: solid 1px #f0eeee;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    .leftSide{
+                        width: 120px;
+                        height: 56px;
+                        border-right: solid 1px #f0eeee;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        .header{
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #584C4D;
+                        }
+                        .infoText{
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                            color: #110F0F;
+                        }
+
+                    }
+                    .rightSide{
+                        width: 100px;
+                        height: 56px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        padding: 0px 24px;
+                        .header{
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #584C4D;
+                        }
+                        .infoText{
+                            font-family: "Hind Siliguri", sans-serif;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 28px;
+                            color: #110F0F;
+                        }
+                    }
+                    
+                }
+                .readMoreLink{
+                    text-decoration: none;
+                    color: #3B41F0;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 28px;
+                    height: 50px;
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+        }
+    img{
+        width: 312px;
+        height: 380px;
+        position: absolute;
+        bottom: 80px;
+        z-index: 10;
+        @media only screen and (max-width: 1319px) {
+            width: 100%;
+        }
+        @media only screen and (max-width: 687px) {
+            width: 100%;
+            height: 180px;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            top:0px;
+            object-fit: cover;
+
+        }
+    }
+    .whiteOval{
+        position: absolute;
+        border-radius: 1000px;
+        width: 1600px;
+        height: 1600px;
+        bottom: -1500px;
+        left: -635px;
+        z-index: 12;
+        background-color: #fff;
+        @media only screen and (max-width: 687px) {
+            width: 1000px;
+            height: 1000px;
+            bottom: -880px;
+            left: -420px;
+        }
+                  
+    }
+    .animalName{
+        font-weight: 600!important;
+        font-size: 20px!important;
+        line-height: 28px!important;
+        color: #110F0F!important;
+        margin-bottom: 30px;
+        z-index: 15;
+        position: relative;
+        text-align: center;
+        >svg{
+            display: none;
+        }
+        @media only screen and (max-width: 687px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 16px!important;
+            line-height: 24px!important;
+            >svg{
+                display: unset;
+                position: absolute;
+                bottom: 45px;
+            }
+        }
+        
+    }
+    .animalCardInfoDisplay{
+        display: none;
+    }
+
+    .animalCardHover{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 12;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 100px;
+        font-size: 38px;
+        font-weight: 600;
+        line-height: 46px;
+        text-align: center;
+
+    }
+    
+    .globojama{
+        z-index: 13;
+        color: rgba(67, 26, 7, 1);
+        background-color: rgba(255, 156, 0, 0.5);
+        @media only screen and (max-width: 687px) {
+            .overlayText{
+                position: relative;
+                font-size: 16px;
+                top: -100px;
+            }     
+        }
+    }
+    .padovanota{
+        z-index: 13;
+        background-color: rgba(42, 50, 192, 0.65);
+        color: rgba(237, 243, 255, 1);
+        @media only screen and (max-width: 687px) {
+            .overlayText{
+                position: relative;
+                font-size: 16px;
+                top: -100px;
+            }     
+        }
+    }
+    .liksAtminty{
+        z-index: 13;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.9) 60.34%);
+        color: rgba(255, 255, 255, 1);
+        @media only screen and (max-width: 687px) {
+            .overlayText{
+                position: relative;
+                font-size: 16px;
+                top: -100px;
+            }     
+        }
+    }
+    }
+}

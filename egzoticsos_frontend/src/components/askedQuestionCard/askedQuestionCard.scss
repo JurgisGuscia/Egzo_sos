@@ -1,0 +1,69 @@
+.askedQuestionCard{
+    width: 1096px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 25px 29px;
+    position: relative;
+    margin-bottom: 20px;
+    @media only screen and (max-width: 1319px) {
+        width: 688px;
+    }
+    @media only screen and (max-width: 687px) {
+        width: 343px;
+    }
+    h3{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+        color: #000000;
+        &:hover{
+            cursor: pointer;
+        }
+        @media only screen and (max-width: 1319px) {
+            font-size: 19px;
+        }
+        @media only screen and (max-width: 687px) {
+            width: 250px;
+        }
+    }
+    p{
+        
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        color: #584C4D;
+        width: 800px;
+        flex-flow: row wrap;
+        margin: 0px;
+        padding: 0px;
+        margin-top: 30px;
+        &.hidden{
+            display: none;
+        }
+        @media only screen and (max-width: 1319px) {
+            width: 100%;
+        }
+        @media only screen and (max-width: 687px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+    img{
+        position: absolute;
+        right: 29px;
+        top: 25px;
+        width: 32px;
+        height: 32px;
+        &.closed{
+            transform: scaleY(-100%);
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.friendCardContainer{
+    text-decoration: none;
+    .friendsLogoWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        
+        &:hover{
+            cursor: pointer;
+        }
+        h3{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 28px;
+            color: #110f0f;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .friendsLogoContainer{
+            width: 200px;
+            height: 200px;
+            border: solid #F0EEEE 2px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media only screen and (max-width: 1319px) {
+                width: 130px;
+                height: 130px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 250px;
+                height: 250px;
+            }
+            
+        }
+    }
+}         

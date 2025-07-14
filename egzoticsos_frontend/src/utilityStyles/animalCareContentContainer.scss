@@ -1,0 +1,108 @@
+.animalCareContentContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 0px 150px 0px;
+    background-image: url("~/public/img/connector5.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: contain;
+    .innerWrapper{
+        width: 1320px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+        }
+        .animalCareContent{
+            width: 890px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            @media only screen and (max-width: 1319px) {
+                width: 480px;
+            }
+            .imageWrapper{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            img{
+                max-width: 100%;
+                align-self: center;
+                margin-bottom: 30px;
+            }
+            .headerImage{
+                width: 100%;
+                height: auto;
+                }
+            h2{
+
+                font-weight: 600;
+                font-size: 38px;
+                line-height: 46px;
+                color: #110F0F;
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+            p{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #584C4D;
+                margin-bottom: 30px;
+                a{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #584C4D;
+                }
+                .externalLink{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #584C4D;
+                    text-decoration: underline;
+                    &:hover{
+                        cursor: pointer;
+
+                    }
+                }
+                
+            }
+            ul{
+                li{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 28px;
+                color: #584C4D;
+                margin-bottom: 10px;
+                a{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #584C4D;
+                }
+                }
+            }
+            .memoContainer{
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 25px;
+                img{
+                    width: 250px;
+                    height: 235px;
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,299 @@
+.animalSearchPage{
+    width: 100%;
+    background-color: #F8F7F7;
+   
+    .allAnimalsHeader{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        @media only screen and (max-width: 687px) {
+            width: 100%;
+        }
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 130px 0px 80px 0px;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+                padding: 100px 0px 80px 0px!important;
+            }
+            .allAnimalsHeaderLeftSide{
+                width: 80%;
+                
+                @media only screen and (max-width: 1319px) {
+                    width: 520px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%!important;
+                    padding:5px
+                }
+                h1{
+                    font-weight: 600;
+                    font-size: 40px;
+                    line-height: 54px;
+                    color: #000;
+                    margin-bottom: 50px;
+                    @media only screen and (max-width: 687px) {
+                        margin-bottom: 150px;
+                    } 
+                }
+                p{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 28px;
+                    gap: 20px;
+                    color: #413939;
+
+                    @media only screen and (max-width: 1319px) {
+                        flex-flow: row wrap;
+                        width: 500px;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        flex-wrap: wrap;
+                        width: 100%;
+                    } 
+                    .animalFilter{
+                        padding: 1px 20px;
+                        border: solid 1px #110F0F;
+                        border-radius: 23px;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 24px;
+                        color: #110F0F;
+                        display: flex;
+                        @media only screen and (max-width: 1319px) {
+                            font-size: 14px;
+                        } 
+                        @media only screen and (max-width: 687px) {
+                            text-wrap: nowrap;
+                        } 
+                    }
+                }
+                
+                
+            }
+            .allAnimalsHeaderRightSide{
+                width: 80%;
+                display: flex;
+                flex-flow: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 343px;
+
+                @media only screen and (max-width: 1319px) {
+                    width: 165px;
+                }
+                @media only screen and (max-width: 687px) {
+                    position: absolute!important;
+                    left: 5px;
+                    top: 260px;
+                }
+               p{
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: #6C5D63;
+                    margin-bottom: 10px;
+                }
+              
+                .orderLogic{
+                    width: 343px;
+                    height: 56px;
+                    padding: 16px;
+                    border-radius: 4px;
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    color: #9F9193;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 24px;
+                    color: #6C5D63;
+                    
+                    @media only screen and (max-width: 1319px) {
+                        width: 160px;
+                        height: 40px;
+                        padding: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .animalCardDisplayContainer{
+      
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 100px;
+        
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 24px;
+            
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                gap: 15px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px!important;
+                justify-content: center;
+                gap: 20px;
+            }
+            .loadingScreen{
+                width: 200px;
+                height: 200px;
+                margin: auto;
+            }
+        }
+    }
+    .pageControlContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 100px;
+        .innerWrapper{
+            width: 1320px;
+            display: flex;
+            justify-content: center;   
+            gap: 20px; 
+            align-items: center;
+
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                flex-direction: column;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            .totalEntries{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #110F0F;
+            }
+            .pagesContainer{
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                @media only screen and (max-width: 687px) {
+                    gap: 2px!important;
+                }
+                .dotSeparator{
+                    >svg{
+                        @media only screen and (max-width: 687px) {
+                            transform: rotate(90deg);
+                            width: 24px;
+                            
+                        }
+                    }
+                }
+                .leftPagesArrow{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                        transform: rotate(-90deg);
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    
+                }
+                .rightPagesArrow{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    img{
+                        width: 24px;
+                        height: 24px;
+                        transform: rotate(90deg);
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+            .selectPageSizeInput{
+                select{
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    width: 210px;
+                    height: 40px;
+                    margin-left: 10px;     
+                    outline: none;
+                }  
+            }
+
+            .jumpToPageContainer{
+                font-family: "Hind Siliguri", sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #110F0F;
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                input[type=number] {
+                    -moz-appearance: textfield;
+                }
+                .jumpToPageNumberInput{
+                    background-color: #fff;
+                    border: solid 1px #9F9193;
+                    border-radius: 4px;
+                    padding: 8px 16px;
+                    width: 76px;
+                    height: 40px;
+                    margin-left: 10px;
+                    outline: none;
+
+                }
+            }
+        }
+    }
+}

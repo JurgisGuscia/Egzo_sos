@@ -1,0 +1,21 @@
+.sponsorLogoContainer{
+    width: 250px;
+    height: 200px;
+    border: solid 2px #f8f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 1319px) {
+        width: 200px;
+        height: 150px;
+    }
+    @media only screen and (max-width: 687px) {
+        width: 250px;
+        height: 250px;
+    }
+    &:hover{
+        cursor: pointer;
+        border: solid 2px #FEE0AA;
+
+    }
+}

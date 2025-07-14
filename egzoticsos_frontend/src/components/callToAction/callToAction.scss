@@ -1,0 +1,227 @@
+.callToActionContainer{
+    width: 100%;
+    height: 949px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    @media only screen and (max-width: 1319px) {
+        width: 688px;
+        height: auto;
+        padding-bottom: 450px;
+    }
+    @media only screen and (max-width: 687px) {
+        padding-bottom: 280px;
+        width: 343px;
+    }
+    .callToActionInnerWrapper{
+        width: 1320px;
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @media only screen and (max-width: 1319px) {
+            width: 688px;
+            
+        }
+        @media only screen and (max-width: 687px) {
+            width: 343px;
+            
+        }
+        h5{
+            width: 800px;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 32px;
+            color: #110f0f;
+            margin-bottom: 10px;
+            margin-top: 100px;
+            @media only screen and (max-width: 1319px) {
+                width: 537px;
+                font-weight: 300;
+                font-size: 20px;
+                line-height: 28px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+                font-size: 20px;
+                line-height: 28px;
+            }
+        }
+        h2{
+            width: 800px;
+            font-weight: 600;
+            font-size: 38px;
+            line-height: 48px;
+            color: #110f0f;
+            margin-bottom: 20px;
+            @media only screen and (max-width: 1319px) {
+                width: 537px;
+                font-weight: 600;
+                font-size: 30px;
+                line-height: 38px;
+            }
+            @media only screen and (max-width: 687px) {
+                font-size: 24px;
+                line-height: 32px;
+                width: 343px;
+            }
+        }
+        p{
+            width: 800px;
+            font-family: "Hind Siliguri", sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            color: #584C4D;
+            margin-bottom: 100px;
+            @media only screen and (max-width: 1319px) {
+                width: 537px;
+                color: #6C5D5E;
+                margin-bottom: 30px;
+            }
+            @media only screen and (max-width: 687px) {
+                font-size: 16px;
+                line-height: 24px;
+                width: 343px;
+            }
+        }
+        .callToActionCardContainer{
+            width: 100%;
+            height: 280px;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+            @media only screen and (max-width: 1319px) {
+                width: 688px;
+                flex-flow: row wrap;
+                gap: 16px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 343px;
+            }
+            .callToActionCard{
+                display: block;
+                width: 312px;
+                height: 278px;
+                font-weight: 500;
+                font-size: 30px;
+                line-height: 38px;
+                padding: 36px 40px 36px 24px;
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+                @media only screen and (max-width: 1319px) {
+                    width: 336px;
+                    height: 278px;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 343px;
+                    height: 120px;
+                    font-size: 24px;
+                    line-height: 32px;
+                }
+                .cardTextContainer{
+                    @media only screen and (max-width: 687px) {
+                        display: block;
+                        width: 180px;
+                    }  
+                }
+                &.gpmParama{
+                    background-color: #FCC163;
+                    color: #110F0F;
+                    
+                    img{
+                        position: relative;
+                        width: 170px;
+                        height: auto;
+                        left: 160px;
+                        top: 0px;
+                        @media only screen and (max-width: 687px) {
+                            width: 140px;
+                            height: auto;
+                            left: 200px;
+                            top: -90px;
+                        }
+                    }
+                }
+                &.daiktuParama{
+                    background-color: #2A2F8D;
+                    color: #ffffff;
+                    
+                    img{
+                        position: relative;
+                        width: 280px;
+                        height: auto;
+                        left: 100px;
+                        top: -40px;
+                        transform: rotate(16deg);
+                        @media only screen and (max-width: 1319px) {
+                            top: -10px;
+                        }
+                        @media only screen and (max-width: 687px) {
+                            width: 180px;
+                            height: auto;
+                            left: 190px;
+                            top: -100px;
+                        }
+                    }
+                }
+                &.pinigineParama{
+                    background-color: #FCC163;
+                    color: #110F0F;
+                    @media only screen and (max-width: 1319px) {
+                        background-color: #2A2F8D;
+                        color: #ffffff;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        background-color: #FCC163;
+                        color: #110F0F;
+                    }
+                    img{
+                        position: relative;
+                        width: 350px;
+                        height: auto;
+                        left: 30px;
+                        top: 10px;
+                        @media only screen and (max-width: 687px) {
+                            width: 250px;
+                            height: auto;
+                            left: 170px;
+                            top: -80px;
+                        }
+                    }
+                }
+                &.savanoriaukParama{
+                    background-color: #2A2F8D;
+                    color: #ffffff;
+                    @media only screen and (max-width: 1319px) {
+                        background-color: #FCC163;
+                        color: #110F0F;
+                    }
+                    @media only screen and (max-width: 687px) {
+                        background-color: #2A2F8D;
+                        color: #ffffff;
+                    }
+                    img{
+                        position: relative;
+                        width: 200px;
+                        height: auto;
+                        left: 100px;
+                        top: -5px;
+                        transform: rotate(5deg);
+                        @media only screen and (max-width: 687px) {
+                            width: 135px;
+                            height: auto;
+                            left: 200px;
+                            top: -65px;
+                            transform: rotate(4deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
