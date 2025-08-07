@@ -31,7 +31,13 @@
                     background: rgba(248,247,247, 0.25);
                     backdrop-filter: blur(2px);
                     -webkit-backdrop-filter: blur(2px);
+                    @media only screen and (max-width: 687px) {
+                        right: -250px;
+                    }
                 }
+            }
+            @media only screen and (max-width: 687px) {
+                width: 95%;
             }
             h1{
                 font-weight: 600;
@@ -51,6 +57,9 @@
                 color: #584C4D;
                 @media only screen and (max-width: 1319px) {
                     z-index: 5;
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
                 }
             }
             button{
@@ -82,6 +91,9 @@
                 @media only screen and (max-width: 1319px) {
                     right: 0px;
                 }
+                @media only screen and (max-width: 687px) {
+                    right: -200px;
+                }
             }
         }
     }
@@ -102,6 +114,9 @@
             @media only screen and (max-width: 1319px) {
                 width: 688px;
                 
+            }
+            @media only screen and (max-width: 687px) {
+                width: 95%;
             }
             h2{
                 font-weight: 600;
@@ -132,6 +147,9 @@
                         
                         width: 48%;
                         
+                    }
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
                     }
                     h5{
                         font-weight: 600;
@@ -168,12 +186,20 @@
                 width: 688px;
                 
             }
+
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+                align-items: center;
+            }
             h2{
                 font-weight: 600;
                 font-size: 38px;
                 line-height: 46px;
                 color: #000000;
                 margin-bottom: 50px;
+                @media only screen and (max-width: 687px) {
+                    width: 95%;
+                }
             }
             .foodWeNeedContentContainer{
                 width: 100%;
@@ -181,7 +207,9 @@
                 flex-flow: row nowrap;
                 justify-content: space-between;
                 align-items: flex-start;
-
+                @media only screen and (max-width: 687px) {
+                    width: 100%;
+                }
                 .foodWeNeedContentLeftSide{
                     width: 694px;
                     display: flex;
@@ -189,6 +217,11 @@
                     justify-content: flex-start;
                     align-items: flex-start;
                     gap: 30px;
+                    @media only screen and (max-width: 687px) {
+                        width: 100%;
+                        flex-flow: column nowrap;
+                        align-items: center;
+                    }
                     .foodList{
                         width: 264px;
                         display: flex;
@@ -196,6 +229,7 @@
                         justify-content: flex-start;
                         align-items: flex-start;
                         gap: 8px;
+                        
                         h4{
                             font-weight: 600;
                             font-size: 20px;
@@ -262,6 +296,9 @@
             @media only screen and (max-width: 1319px) {
                 width: 688px;  
             }
+            @media only screen and (max-width: 687px) {
+                width: 95%;
+            }
         }
         a{
             text-decoration: none;
@@ -308,6 +345,9 @@
             @media only screen and (max-width: 1319px) {
                 width: 688px;  
             }
+            @media only screen and (max-width: 687px) {
+                width: 95%;
+            }
             h3{
                 font-weight: 300;
                 font-size: 24px;
@@ -330,6 +370,9 @@
                 margin: 40px 0px;
                 @media only screen and (max-width: 1319px) {
                     width: 688px;  
+                }
+                @media only screen and (max-width: 687px) {
+                    width: 95%;
                 }
             }
             .materialSupportPhotoContainer{

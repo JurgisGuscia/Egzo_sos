@@ -16,6 +16,11 @@
         @media only screen and (max-width: 1319px) {
             width: 688px;
         }
+        @media only screen and (max-width: 687px) {
+            width: 100%;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
         .animalCareContent{
             width: 890px;
             display: flex;
@@ -24,6 +29,10 @@
             align-items: flex-start;
             @media only screen and (max-width: 1319px) {
                 width: 480px;
+            }
+            @media only screen and (max-width: 687px) {
+                width: 95%;
+                align-items: center;
             }
             .imageWrapper{
                 width: 100%;

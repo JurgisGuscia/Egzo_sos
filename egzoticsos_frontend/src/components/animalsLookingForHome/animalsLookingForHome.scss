@@ -13,6 +13,9 @@
         @media only screen and (max-width: 1319px) {
             width: 688px;
         }
+        @media only screen and (max-width: 687px) {
+            width: 95%;
+        }
         p{
             font-weight: 300;
             font-size: 24px;
@@ -35,7 +38,11 @@
             justify-content: space-between;
             gap: 10px;
             margin-top: 50px;
-            
+            @media only screen and (max-width: 687px) {
+                width: 100%;
+                gap: 20px;
+                justify-content: center;
+            }
         }
     }
 }
