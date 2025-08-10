@@ -69,6 +69,11 @@ export default function PerformanceReports() {
           <h4>Skaidri veikla</h4>
           <h2>EGZOTICSOS metinės veiklos ataskaitos</h2>
           <div className="downloadableReportsContainer">
+            {/* 
+          refactorinti: ReportCard yra componentas skirtas atvaizduoti viena veiklos ataskaita
+          korteles reiketu dinamiskai atvaizduoti traukiant ikeltas ataskaitas is 
+          duomenu bazes.        
+          */}
             <ReportCard
               name="2023 metų ataskaita"
               description="VŠĮ „EGZOTICSOS“ pažyma dėl į prieglaudą patekusių bešeiminkių/padovanotų egzotinių gyvūnų"
