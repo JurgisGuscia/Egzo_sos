@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Žinduoliai",
+    "linkID": 1,
+    "description": ""
+  },
+  {
+    "name": "Paukščiai",
+    "linkID": 2,
+    "description": ""
+  },
+  {
+    "name": "Ropliai",
+    "linkID": 3,
+    "description": ""
+  },
+  {
+    "name": "Varliagyviai",
+    "linkID": 4,
+    "description": ""
+  },
+  {
+    "name": "Žuvys",
+    "linkID": 5,
+    "description": ""
+  },
+  {
+    "name": "Voragyviai",
+    "linkID": 6,
+    "description": ""
+  },
+  {
+    "name": "Kita",
+    "linkID": 7,
+    "description": ""
+  }
+]
