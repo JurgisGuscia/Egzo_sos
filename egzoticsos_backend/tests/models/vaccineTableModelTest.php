@@ -1,43 +1,63 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . "/../../src/models/VaccineModel.php";
+require_once __DIR__ . "/../../src/models/VaccineTableModel.php";
 
-class VaccineModelTest extends TestCase{
+class VaccineTableModelTest extends TestCase{
     #getAllVacines
-    public function testGetAllVaccinesReturnsArray(){}
-    public function testGetAllVaccinesReturnsEmptyArrayIfTableEmpty(){}
-    public function testGetAllVaccinesReturnsAssocArrayStructure(){}
-    public function testGetAllVaccinesHandlesPDOExceptionAndReturnsFalse(){}
-    public function testGetAllVaccinesPreservesSpecialCharactersInData(){}
-    public function testGetAllVaccinesReturnsFullDatasetForMultipleRows(){}
+    public function testGetAllVaccinesReturnsArray(){
+        $expectedData = [
+            ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+            ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+        ];
 
-    #getVacine($id)
-    public function testGetVaccineReturnsCorrectVaccineById(){}
-    public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){}
-    public function testGetVaccineReturnsNullIfVaccineDoesNotExist(){}
-    public function testGetVaccineWithInvalidIdReturnsNullOrFalse(){}
-    public function testGetVaccinePreservesSpecialCharactersInData(){}
+        $stmtMock = $this->createMock(PDOStatement::class);
+        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
+        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($expectedData);
 
-    #addVaccine($name, $description)
-    public function testAddVaccineInsertsNewVaccineAndReturnsId(){}
-    public function testAddVaccineReturnsNullIfVaccineAlreadyExists(){}
-    public function testAddVaccineRejectsEntriesWithMissingInput(){}
-    public function testAddVaccineHandlesPDOExceptionAndReturnsFalse(){}
-    public function testAddVaccineAllowsSpecialCharactersInNameAndDescription(){}
+        $testTable = "mockTable";
+        $pdoMock = $this->createMock(PDO::class);
+        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
 
-    #deleteVacine($id)
-    public function testDeleteVaccineRemovesVaccineSuccessfully(){}
-    public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){} 
-    public function testDeleteVaccineHandlesPDOExceptionAndReturnsFalse(){}
-    public function testDeleteVaccineWithInvalidIdReturnsFalse(){}
-    #editVacine($id, $name, $description)
+        $model = new VaccineModel($pdoMock, $testTable);
 
-    public function testEditVaccineUpdatesVaccineSuccessfully(){}
-    public function testEditVaccineReturnsFalseIfPDOExceptionOccurs(){}
-    public function testEditVaccineDoesNotCreateNewRecordIfIdDoesNotExist(){}
-    public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){}
-    public function testEditVaccineWithEmptyNameOrDescriptionReturnsError(){} 
+        $result = $model->getAllVaccines();
+
+        $this->assertIsArray($result, "getAllVaccines should return an array");
+        $this->assertEquals($expectedData, $result, "Returned array doesn't match expected dataset");
+    }
+    // public function testGetAllVaccinesReturnsEmptyArrayIfTableEmpty(){}
+    // public function testGetAllVaccinesReturnsAssocArrayStructure(){}
+    // public function testGetAllVaccinesHandlesPDOExceptionAndReturnsFalse(){}
+    // public function testGetAllVaccinesPreservesSpecialCharactersInData(){}
+    // public function testGetAllVaccinesReturnsFullDatasetForMultipleRows(){}
+
+    // #getVaccine($id)
+    // public function testGetVaccineReturnsCorrectVaccineById(){}
+    // public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){}
+    // public function testGetVaccineReturnsNullIfVaccineDoesNotExist(){}
+    // public function testGetVaccineWithInvalidIdReturnsNullOrFalse(){}
+    // public function testGetVaccinePreservesSpecialCharactersInData(){}
+
+    // #addVaccine($name, $description)
+    // public function testAddVaccineInsertsNewVaccineAndReturnsId(){}
+    // public function testAddVaccineReturnsNullIfVaccineAlreadyExists(){}
+    // public function testAddVaccineRejectsEntriesWithMissingInput(){}
+    // public function testAddVaccineHandlesPDOExceptionAndReturnsFalse(){}
+    // public function testAddVaccineAllowsSpecialCharactersInNameAndDescription(){}
+
+    // #deleteVacine($id)
+    // public function testDeleteVaccineRemovesVaccineSuccessfully(){}
+    // public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){} 
+    // public function testDeleteVaccineHandlesPDOExceptionAndReturnsFalse(){}
+    // public function testDeleteVaccineWithInvalidIdReturnsFalse(){}
+    // #editVacine($id, $name, $description)
+
+    // public function testEditVaccineUpdatesVaccineSuccessfully(){}
+    // public function testEditVaccineReturnsFalseIfPDOExceptionOccurs(){}
+    // public function testEditVaccineDoesNotCreateNewRecordIfIdDoesNotExist(){}
+    // public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){}
+    // public function testEditVaccineWithEmptyNameOrDescriptionReturnsError(){} 
 }
 
 ?>
