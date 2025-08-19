@@ -1,9 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . "/../../src/models/VaccineTableModel.php";
+require_once __DIR__ . "/../../../src/Models/VaccineTableModel.php";
 
-class VaccineTableModelTest extends TestCase{
+class VaccineTableModelIntegrationTest extends TestCase{
     
     #getAllVacines
 
@@ -71,18 +71,6 @@ class VaccineTableModelTest extends TestCase{
             $this->assertArrayHasKey("name", $row, "Each row must have a 'name' key");
             $this->assertArrayHasKey("description", $row, "Each row must have a 'description' key");
         }
-    }
-
-    public function testGetAllVaccinesHandlesPDOExceptionAndReturnsFalse(){
-        $testTable = "mockTable";
-
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->will($this->throwException(new PDOException("Database error")));
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
-        $this->assertFalse($result, "getAllVaccines should return false when a PDOException occurs");
     }
 
     public function testGetAllVaccinesPreservesSpecialCharactersInData(){
