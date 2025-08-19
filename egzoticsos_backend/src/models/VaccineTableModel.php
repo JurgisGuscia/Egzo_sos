@@ -1,5 +1,5 @@
 <?php
-class VaccineModel {
+class VaccineTableModel {
     protected $pdo;
     protected $table;
     protected $primaryKey = "id";
@@ -12,7 +12,7 @@ class VaccineModel {
 
     public function getAllVaccines(){
         try{
-            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
+            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} ORDER BY id");
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }catch(PDOException $e){

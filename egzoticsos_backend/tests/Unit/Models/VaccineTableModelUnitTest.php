@@ -11,9 +11,9 @@ class VaccineTableModelUnitTest extends TestCase{
         $testTable = "mockTable";
 
         $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->will($this->throwException(new PDOException("Database error")));
+        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable} ORDER BY id")->will($this->throwException(new PDOException("Database error")));
 
-        $model = new VaccineModel($pdoMock, $testTable);
+        $model = new VaccineTableModel($pdoMock, $testTable);
 
         $result = $model->getAllVaccines();
         $this->assertFalse($result, "getAllVaccines should return false when a PDOException occurs");

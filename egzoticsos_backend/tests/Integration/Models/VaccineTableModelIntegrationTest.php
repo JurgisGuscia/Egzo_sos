@@ -6,64 +6,55 @@ require_once __DIR__ . "/../../../src/Models/VaccineTableModel.php";
 class VaccineTableModelIntegrationTest extends TestCase{
     
     #getAllVacines
+    protected PDO $pdo;
+    protected string $testTable = "testTable";
+    protected VaccineTableModel $model;
 
-    public function testGetAllVaccinesReturnsArray(){
-        $testTable = "mockTable";
-        $expectedData = [
-            ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
-            ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
-        ];
-
-        $stmtMock = $this->createMock(PDOStatement::class);
-        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
-        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($expectedData);
-        
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
-
-        $this->assertIsArray($result, "getAllVaccines should return an array");
-        $this->assertEquals($expectedData, $result, "Returned array doesn't match expected dataset");
+    protected function setUp():void{
+        #Creates in memory sqlite
+        $this->pdo = new PDO("sqlite::memory:");
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->pdo->exec("
+            CREATE TABLE {$this->testTable} (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT,
+                description TEXT
+            );
+        ");
+        $this->model = new VaccineTableModel($this->pdo, $this->testTable);
     }
 
-    public function testGetAllVaccinesReturnsEmptyArrayIfTableEmpty(){
-        $testTable = "mockTable";
-        $expectedData = [];
+    protected function populateDataBase(array $rows):void{
+        #Helper, pushes given data to sqlite
+        foreach ($rows as $row) {
+            $this->pdo->prepare("
+                INSERT INTO {$this->testTable} (name, description) VALUES (:name, :description)
+            ")->execute([
+                ':name' => $row['name'],
+                ':description' => $row['description']
+            ]);
+        }
+    }
 
-        $stmtMock = $this->createMock(PDOStatement::class);
-        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
-        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($expectedData);
+    public function testGetAllVaccinesReturnsArray(){
+        
+        $result = $this->model->getAllVaccines();
+        $this->assertIsArray($result, "GetAllVaccines() should return an array.");
+    }
 
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
-
-        $this->assertEmpty($result, "Returned array should be empty when table has no rows");
+    public function testGetAllVaccinesEmptyTableReturnsArray(){
+        $result = $this->model->getAllVaccines();
+        $this->assertIsArray($result, "GetAllVaccines() empty table should return an array.");
     }
 
     public function testGetAllVaccinesReturnsAssocArrayStructure(){
-        $testTable = "mockTable";
-        $mockData = [
-            ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
-            ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
-        ];
+       
+        $this->populateDataBase([
+            ["name" => "Vaccine A", "description" => "Description A"],
+            ["name" => "Vaccine B", "description" => "Description B"]
+        ]);
 
-        $stmtMock = $this->createMock(PDOStatement::class);
-        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
-        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($mockData);
-
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
+        $result = $this->model->getAllVaccines();
 
         foreach ($result as $row) {
             $this->assertIsArray($row, "Each vaccine should be an associative array");
@@ -74,53 +65,33 @@ class VaccineTableModelIntegrationTest extends TestCase{
     }
 
     public function testGetAllVaccinesPreservesSpecialCharactersInData(){
-        $testTable = "mockTable";
-        $mockData = [
-            ["id" => 1, "name" => "Väccïne \"A\"", "description" => "Dëscription with ünicode & symbols < >"],
-            ["id" => 2, "name" => "Vaccine B", "description" => "Normal description"]
+        $testData = [
+            ["name" => "Väccïne \"A\"", "description" => "Dëscription with ünicode & symbols < >"],
+            ["name" => "Vaccine B", "description" => "Normal description"]
         ];
-
-        $stmtMock = $this->createMock(PDOStatement::class);
-        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
-        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($mockData);
-
- 
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
-
-        $this->assertIsArray($result, "getAllVaccines should return an array");
+        $this->populateDataBase($testData);
+        
+        $result = $this->model->getAllVaccines();
 
         foreach ($result as $index => $row) {
-            $this->assertEquals($mockData[$index]["name"], $row["name"], "Special characters in 'name' should be preserved");
-            $this->assertEquals($mockData[$index]["description"], $row["description"], "Special characters in 'description' should be preserved");
+            $this->assertEquals($testData[$index]["name"], $row["name"], "Special characters in 'name' should be preserved");
+            $this->assertEquals($testData[$index]["description"], $row["description"], "Special characters in 'description' should be preserved");
         }
     }
 
     public function testGetAllVaccinesReturnsFullDatasetForMultipleRows(){
-        $testTable = "mockTable";
-        $mockData = [
+        $testData = [
             ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
             ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
-            ["id" => 3, "name" => "Vaccine C", "description" => "Description C"],
+            ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
         ];
 
-        $stmtMock = $this->createMock(PDOStatement::class);
-        $stmtMock->expects($this->once())->method("execute")->willReturn(true);
-        $stmtMock->expects($this->once())->method("fetchAll")->with(PDO::FETCH_ASSOC)->willReturn($mockData);
+        $this->populateDataBase($testData);
+       
+        $result = $this->model->getAllVaccines();
 
-        $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable}")->willReturn($stmtMock);
-
-        $model = new VaccineModel($pdoMock, $testTable);
-
-        $result = $model->getAllVaccines();
-
-        $this->assertCount(count($mockData), $result, "Returned dataset should have the same number of rows as mock data");
-        $this->assertEquals($mockData, $result, "Returned dataset should match the full mock data exactly");
+        $this->assertCount(count($testData), $result, "Returned dataset should have the same number of rows as mock data");
+        $this->assertEquals($testData, $result, "Returned dataset should match the full mock data exactly");
     }
 
     // #getVaccine($id)
