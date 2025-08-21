@@ -21,31 +21,29 @@ class VaccineTableModelUnitTest extends TestCase{
 
 
     // #getVaccine($id)
-    // public function testGetVaccineReturnsCorrectVaccineById(){}
-    // public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){}
-    // public function testGetVaccineReturnsNullIfVaccineDoesNotExist(){}
-    // public function testGetVaccineWithInvalidIdReturnsNullOrFalse(){}
-    // public function testGetVaccinePreservesSpecialCharactersInData(){}
+    public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){
+        $testTable = "mockTable";
+        $testID = 1;
+        $pdoMock = $this->createMock(PDO::class);
+        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable} WHERE id = :id LIMIT 1")->will($this->throwException(new PDOException("Database error")));
+
+        $model = new VaccineTableModel($pdoMock, $testTable);
+
+        $result = $model->getVaccine($testID);
+        $this->assertFalse($result, "getVaccine should return false when a PDOException occurs");
+    }
+    
 
     // #addVaccine($name, $description)
-    // public function testAddVaccineInsertsNewVaccineAndReturnsId(){}
-    // public function testAddVaccineReturnsNullIfVaccineAlreadyExists(){}
-    // public function testAddVaccineRejectsEntriesWithMissingInput(){}
-    // public function testAddVaccineHandlesPDOExceptionAndReturnsFalse(){}
-    // public function testAddVaccineAllowsSpecialCharactersInNameAndDescription(){}
+    // public function testAddVaccineHandlesPDOExceptionAndReturnsFalse(){
+        
+    // }
 
     // #deleteVacine($id)
-    // public function testDeleteVaccineRemovesVaccineSuccessfully(){}
-    // public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){} 
     // public function testDeleteVaccineHandlesPDOExceptionAndReturnsFalse(){}
-    // public function testDeleteVaccineWithInvalidIdReturnsFalse(){}
-    // #editVacine($id, $name, $description)
 
-    // public function testEditVaccineUpdatesVaccineSuccessfully(){}
+    // #editVacine($id, $name, $description)
     // public function testEditVaccineReturnsFalseIfPDOExceptionOccurs(){}
-    // public function testEditVaccineDoesNotCreateNewRecordIfIdDoesNotExist(){}
-    // public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){}
-    // public function testEditVaccineWithEmptyNameOrDescriptionReturnsError(){} 
 }
 
 ?>

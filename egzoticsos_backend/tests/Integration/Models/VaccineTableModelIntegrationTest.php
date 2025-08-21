@@ -95,28 +95,120 @@ class VaccineTableModelIntegrationTest extends TestCase{
     }
 
     // #getVaccine($id)
-    // public function testGetVaccineReturnsCorrectVaccineById(){}
-    // public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){}
-    // public function testGetVaccineReturnsNullIfVaccineDoesNotExist(){}
-    // public function testGetVaccineWithInvalidIdReturnsNullOrFalse(){}
-    // public function testGetVaccinePreservesSpecialCharactersInData(){}
+
+    public function testGetVaccineReturnsCorrectVaccine(){
+        $testData = [
+            ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+            ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+            ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+        ];
+
+        $this->populateDataBase($testData);
+
+        $result = $this->model->getVaccine(2);
+
+        $this->assertEquals(2, $result["id"], "getVaccine should return the correct row.");
+        $this->assertEquals($testData[1]["name"], $result["name"], "getVaccine should return the correct row.");
+        $this->assertEquals($testData[1]["description"], $result["description"], "getVaccine should return the correct row.");
+    }
+
+    public function testGetVaccineNotFoundRowReturnsFalse(){
+        $testData = [
+                ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+            ];
+
+        $this->populateDataBase($testData);
+
+        $result = $this->model->getVaccine(4);
+
+        $this->assertEquals(false, $result, "getVaccine should handle not found row.");
+        
+    }
+
+    public function testGetVaccineWithInvalidIdReturnsFalse(){
+        $testData = [
+                ["id" => 1, "name" => "Vaccine A", "description" => "Description A"]
+            ];
+
+        $this->populateDataBase($testData);
+
+        $result1 = $this->model->getVaccine(-2);
+        $result2 = $this->model->getVaccine("e");
+        $result3 = $this->model->getVaccine("*");
+        $this->assertEquals(false, $result1, "getVaccine should return false with invalid ID.");
+        $this->assertEquals(false, $result2, "getVaccine should return false with invalid ID.");
+        $this->assertEquals(false, $result3, "getVaccine should return false with invalid ID.");
+    }
+
+    public function testGetVaccinePreservesSpecialCharactersInData(){
+        $testData = [
+                ["name" => "Väccïne \"A\"", "description" => "Dëscription with ünicode & symbols < >"],
+                ["name" => "Vaccine B", "description" => "Normal description"]
+            ];
+        $this->populateDataBase($testData);
+        
+        $result = $this->model->getVaccine(2);
+
+        $this->assertEquals($testData[1]["name"], $result["name"], "Special characters in 'name' should be preserved");
+        $this->assertEquals($testData[1]["description"], $result["description"], "Special characters in 'description' should be preserved");
+    }
 
     // #addVaccine($name, $description)
-    // public function testAddVaccineInsertsNewVaccineAndReturnsId(){}
-    // public function testAddVaccineReturnsNullIfVaccineAlreadyExists(){}
-    // public function testAddVaccineRejectsEntriesWithMissingInput(){}
-    // public function testAddVaccineHandlesPDOExceptionAndReturnsFalse(){}
-    // public function testAddVaccineAllowsSpecialCharactersInNameAndDescription(){}
+    public function testAddVaccineInsertsNewVaccineAndReturnsId(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+
+        $result = $this->model->addVaccine("testName", "testDescription");
+                
+        $this->assertEquals(4, $result, "addVaccine should create row and return its ID.");
+    }
+
+    public function testAddVaccineReturnsNullIfVaccineAlreadyExists(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+
+        $result = $this->model->addVaccine("Vaccine B", "testDescription");
+
+        $this->assertEquals(null, $result, "addVaccine should return null if vaccine already exists");
+    }
+    
+    public function testAddVaccineAllowsSpecialCharactersInNameAndDescription(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"]
+                ];
+
+        $testEntry = ["name" => "Väccïne \"A\"", "description" => "Dëscription with ünicode & symbols < >"];  
+
+        $this->populateDataBase($testData);
+
+        $this->model->addVaccine($testEntry["name"], $testEntry["description"]);
+
+        $result = $this->model->getVaccine(2);
+
+        $this->assertEquals($testEntry["name"], $result["name"], "addVaccine should preserver special characters2");
+        $this->assertEquals($testEntry["description"], $result["description"], "addVaccine should preserver special characters1");
+    }
 
     // #deleteVacine($id)
     // public function testDeleteVaccineRemovesVaccineSuccessfully(){}
     // public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){} 
-    // public function testDeleteVaccineHandlesPDOExceptionAndReturnsFalse(){}
     // public function testDeleteVaccineWithInvalidIdReturnsFalse(){}
-    // #editVacine($id, $name, $description)
 
+
+    // #editVacine($id, $name, $description)
     // public function testEditVaccineUpdatesVaccineSuccessfully(){}
-    // public function testEditVaccineReturnsFalseIfPDOExceptionOccurs(){}
     // public function testEditVaccineDoesNotCreateNewRecordIfIdDoesNotExist(){}
     // public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){}
     // public function testEditVaccineWithEmptyNameOrDescriptionReturnsError(){} 
