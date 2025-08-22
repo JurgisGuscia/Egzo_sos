@@ -22,9 +22,6 @@ class VaccineTableModel {
     }
 
     public function getVaccine($id){
-        if (!is_int($id) || $id < 0) {
-            return false;
-        }
         try{
             $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE {$this->primaryKey} = :id LIMIT 1");
             $stmt->execute([":id" =>$id]);
@@ -36,9 +33,6 @@ class VaccineTableModel {
     }
 
     public function addVaccine($name, $description){
-        if(!$name || !$description){
-            return false;
-        }
         $vaccineExists = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE name = :name LIMIT 1");
         $vaccineExists->execute([":name" => $name]);
         $vaccineExistsResult = $vaccineExists->fetch(PDO::FETCH_ASSOC);
@@ -75,6 +69,12 @@ class VaccineTableModel {
         try{
             $stmt = $this->pdo->prepare("UPDATE {$this->table} SET name = :name, description = :description WHERE {$this->primaryKey} = :id");
             $stmt->execute([":name" => $name, ":description" => $description, ":id" => $id]);
+
+             if ($stmt->rowCount() === 0) {
+            // No rows affected, either ID not found or data was the same
+                return false;
+            }
+
             return true;
         }catch(PDOException $e){
             error_log("Vakcinos įrašo atnaujinti nepavyko: " . $e->getMessage());

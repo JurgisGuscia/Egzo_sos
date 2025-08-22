@@ -5,7 +5,7 @@ require_once __DIR__ . "/../../../src/Models/VaccineTableModel.php";
 
 class VaccineTableModelIntegrationTest extends TestCase{
     
-    #getAllVacines
+    
     protected PDO $pdo;
     protected string $testTable = "testTable";
     protected VaccineTableModel $model;
@@ -35,7 +35,8 @@ class VaccineTableModelIntegrationTest extends TestCase{
             ]);
         }
     }
-
+     
+    #getAllVaccines
     public function testGetAllVaccinesReturnsArray(){
         
         $result = $this->model->getAllVaccines();
@@ -94,8 +95,7 @@ class VaccineTableModelIntegrationTest extends TestCase{
         $this->assertEquals($testData, $result, "Returned dataset should match the full mock data exactly");
     }
 
-    // #getVaccine($id)
-
+    #getVaccine($id)
     public function testGetVaccineReturnsCorrectVaccine(){
         $testData = [
             ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
@@ -127,21 +127,6 @@ class VaccineTableModelIntegrationTest extends TestCase{
         
     }
 
-    public function testGetVaccineWithInvalidIdReturnsFalse(){
-        $testData = [
-                ["id" => 1, "name" => "Vaccine A", "description" => "Description A"]
-            ];
-
-        $this->populateDataBase($testData);
-
-        $result1 = $this->model->getVaccine(-2);
-        $result2 = $this->model->getVaccine("e");
-        $result3 = $this->model->getVaccine("*");
-        $this->assertEquals(false, $result1, "getVaccine should return false with invalid ID.");
-        $this->assertEquals(false, $result2, "getVaccine should return false with invalid ID.");
-        $this->assertEquals(false, $result3, "getVaccine should return false with invalid ID.");
-    }
-
     public function testGetVaccinePreservesSpecialCharactersInData(){
         $testData = [
                 ["name" => "Väccïne \"A\"", "description" => "Dëscription with ünicode & symbols < >"],
@@ -155,7 +140,7 @@ class VaccineTableModelIntegrationTest extends TestCase{
         $this->assertEquals($testData[1]["description"], $result["description"], "Special characters in 'description' should be preserved");
     }
 
-    // #addVaccine($name, $description)
+    #addVaccine($name, $description)
     public function testAddVaccineInsertsNewVaccineAndReturnsId(){
         $testData = [
                     ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
@@ -197,21 +182,102 @@ class VaccineTableModelIntegrationTest extends TestCase{
 
         $result = $this->model->getVaccine(2);
 
-        $this->assertEquals($testEntry["name"], $result["name"], "addVaccine should preserver special characters2");
-        $this->assertEquals($testEntry["description"], $result["description"], "addVaccine should preserver special characters1");
+        $this->assertEquals($testEntry["name"], $result["name"], "addVaccine should handle special characters");
+        $this->assertEquals($testEntry["description"], $result["description"], "addVaccine should handle special characters");
     }
 
-    // #deleteVacine($id)
-    // public function testDeleteVaccineRemovesVaccineSuccessfully(){}
-    // public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){} 
-    // public function testDeleteVaccineWithInvalidIdReturnsFalse(){}
+    #deleteVaccine($id)
+    public function testDeleteVaccineRemovesVaccineSuccessfully(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
 
+        $this->populateDataBase($testData);
 
-    // #editVacine($id, $name, $description)
-    // public function testEditVaccineUpdatesVaccineSuccessfully(){}
-    // public function testEditVaccineDoesNotCreateNewRecordIfIdDoesNotExist(){}
-    // public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){}
-    // public function testEditVaccineWithEmptyNameOrDescriptionReturnsError(){} 
+        $this->model->deleteVaccine(2);
+        
+        $result = $this->model->getVaccine(2);
+
+        $this->assertEquals($result, false, "deleteVaccine should delete the row with given id.");
+
+    }
+
+    public function testDeleteVaccineReturnsTrueEvenIfIdDoesNotExist(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+
+        $result = $this->model->deleteVaccine(4);
+    
+        $this->assertEquals($result, true, "deleteVaccine should delete the row with given id.");
+    } 
+
+    #editVaccine($id, $name, $description)
+    public function testEditVaccineUpdatesVaccineSuccessfully(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+        
+        $this->model->editVaccine(2, "EditedVaccine", "EditedDescription");
+        
+        $result = $this->model->getVaccine(2);
+        $result2 = $this->model->getVaccine(1);
+        $result3= $this->model->getVaccine(3);
+
+        $this->assertEquals("EditedVaccine", $result["name"], "editVaccine should update the row.");
+        $this->assertEquals("EditedDescription", $result["description"], "editVaccine should update the row.");
+
+        $this->assertEquals("Vaccine A", $result2["name"], "editVaccine should not update other rows.");
+        $this->assertEquals("Description A", $result2["description"], "editVaccine should not update other rows.");
+
+        $this->assertEquals("Vaccine C", $result3["name"], "editVaccine should not update other rows.");
+        $this->assertEquals("Description C", $result3["description"], "editVaccine should not update other rows.");
+
+    }
+    
+    public function testEditVaccineDoesNotCreateNewRecord(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+
+        $this->model->editVaccine(4, "EditedVaccine", "EditedDescription");
+
+        $result = $this->model->getAllVaccines();
+
+        $this->assertEquals(3, count($result), "editVaccine should not create new entries.");
+
+    }
+    public function testEditVaccineAllowsSpecialCharactersInNameAndDescription(){
+        $testData = [
+                    ["id" => 1, "name" => "Vaccine A", "description" => "Description A"],
+                    ["id" => 2, "name" => "Vaccine B", "description" => "Description B"],
+                    ["id" => 3, "name" => "Vaccine C", "description" => "Description C"]
+                ];
+
+        $this->populateDataBase($testData);
+
+        $this->model->editVaccine(2, "Väccïne \"A\"", "Dëscription with ünicode & symbols < >");
+
+        $result = $this->model->getVaccine(2);
+
+        $this->assertEquals("Väccïne \"A\"", $result["name"], "editVaccine should allow special characters.");
+        $this->assertEquals("Dëscription with ünicode & symbols < >", $result["description"], "editVaccine should allow special characters.");        
+
+    }
 }
 
 ?>

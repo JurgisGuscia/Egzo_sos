@@ -21,7 +21,7 @@ class VaccineTableModelUnitTest extends TestCase{
 
 
     // #getVaccine($id)
-    public function testGetVaccineReturnsFalseIfPDOExceptionOccurs(){
+    public function testGetVaccineHandlesPDOExceptionAndReturnsFalse(){
         $testTable = "mockTable";
         $testID = 1;
         $pdoMock = $this->createMock(PDO::class);
@@ -43,7 +43,7 @@ class VaccineTableModelUnitTest extends TestCase{
     // public function testDeleteVaccineHandlesPDOExceptionAndReturnsFalse(){}
 
     // #editVacine($id, $name, $description)
-    // public function testEditVaccineReturnsFalseIfPDOExceptionOccurs(){}
+    // public function testEditVaccineHandlesPDOExceptionAndReturnsFalse(){}
 }
 
 ?>
