@@ -74,7 +74,7 @@ class VaccineTableModel {
             // No rows affected, either ID not found or data was the same
                 return false;
             }
-
+            
             return true;
         }catch(PDOException $e){
             error_log("Vakcinos įrašo atnaujinti nepavyko: " . $e->getMessage());
