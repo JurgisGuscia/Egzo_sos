@@ -46,7 +46,12 @@ class AnimalDTO{
         foreach ($optionalFields as $field) {
         if (array_key_exists($field, $data)) {
             if (in_array($field, ['isSterilized','isChipped','isAvailableForAdoption','isAdopted','isDead'])) {
-                $this->$field = (bool)$data[$field];
+                $value = $data[$field];
+                if (is_string($value)) {
+                    $this->$field = strtolower($value) === 'true';
+                } else {
+                    $this->$field = (bool)$value;
+                }
             } else {
                 $maxLength = ($field === 'photoUrl') ? 2048 : 255;
                 $this->$field = $this->validateString($data[$field], $maxLength, $field);
