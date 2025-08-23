@@ -4,14 +4,12 @@ use PHPUnit\Framework\TestCase;
 require_once __DIR__ . "/../../../src/Models/VaccineTableModel.php";
 
 class VaccineTableModelIntegrationTest extends TestCase{
-    
-    
     protected PDO $pdo;
     protected string $testTable = "testTable";
     protected VaccineTableModel $model;
 
     protected function setUp():void{
-        #Creates in memory sqlite
+        #Create in memory sqlite
         $this->pdo = new PDO("sqlite::memory:");
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo->exec("
@@ -36,7 +34,7 @@ class VaccineTableModelIntegrationTest extends TestCase{
         }
     }
      
-    #getAllVaccines
+    #getAllVaccines()
     public function testGetAllVaccinesReturnsArray(){
         
         $result = $this->model->getAllVaccines();

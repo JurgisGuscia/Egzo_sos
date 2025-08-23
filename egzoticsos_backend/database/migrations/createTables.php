@@ -29,7 +29,6 @@ $animalSQL = "CREATE TABLE IF NOT EXISTS `$animalTable` (
 $classSQL = "CREATE TABLE IF NOT EXISTS `$classTable` (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    linkID int NOT NULL,
     description VARCHAR(2000)
 )";
 

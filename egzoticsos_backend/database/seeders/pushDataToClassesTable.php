@@ -12,7 +12,7 @@ $dataArray = json_decode($jsonContent, true);
 if(json_last_error() !== JSON_ERROR_NONE){
     exit("JSON dekodavimo klaida: " . json_last_error_msg());
 }
-$sql = "INSERT INTO `$classTable` (name, linkID, description) VALUES (:name, :linkID, :description)";
+$sql = "INSERT INTO `$classTable` (name, description) VALUES (:name, :description)";
 $stmt = $pdo->prepare($sql);
 
 foreach($dataArray as $row){
@@ -24,7 +24,6 @@ foreach($dataArray as $row){
         try{
             $stmt->execute([
                 ":name" => $row["name"],
-                ":linkID" => $row["linkID"],
                 ":description" => $row["description"]
             ]);
         }catch (PDOException $e){
