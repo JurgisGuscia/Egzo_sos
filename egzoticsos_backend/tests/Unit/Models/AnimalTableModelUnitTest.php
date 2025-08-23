@@ -22,7 +22,6 @@ class AnimalTableModelUnitTest extends TestCase{
         $this->assertFalse($result, "getAllAnimals should return false when a PDOException occurs");
     }
 
-
     #getAnimal($id)
     public function testGetAnimalHandlesPDOExceptionAndReturnsFalse(): void{
         $testTable = "animals";
