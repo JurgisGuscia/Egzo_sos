@@ -114,9 +114,9 @@ class ClassTableModelIntegrationTest extends TestCase{
 
         $result = $this->model->getClass(2);
 
-        $this->assertEquals(2, $result["id"], "getVaccine should return the correct row.");
-        $this->assertEquals($testData[1]["name"], $result["name"], "getVaccine should return the correct row.");
-        $this->assertEquals($testData[1]["description"], $result["description"], "getVaccine should return the correct row.");
+        $this->assertEquals(2, $result["id"], "Class should return the correct row.");
+        $this->assertEquals($testData[1]["name"], $result["name"], "getClass should return the correct row.");
+        $this->assertEquals($testData[1]["description"], $result["description"], "getClass should return the correct row.");
     }
 
     public function testGetClassNotFoundRowReturnsFalse(){
@@ -228,7 +228,7 @@ class ClassTableModelIntegrationTest extends TestCase{
 
     #editClass($id, $name, $description)
 
-    public function testEditClassUpdatesVaccineSuccessfully(){
+    public function testEditClassUpdatesClassSuccessfully(){
         $testData = [
                     ["id" => 1, "name" => "Class A", "description" => "Description A"],
                     ["id" => 2, "name" => "Class B", "description" => "Description B"],
