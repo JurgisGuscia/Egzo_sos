@@ -10,20 +10,20 @@ $animalSQL = "CREATE TABLE IF NOT EXISTS `$animalTable` (
     name VARCHAR(100) NOT NULL,
     breed VARCHAR(100) NOT NULL,
     class VARCHAR(100) NOT NULL,
-    sex VARCHAR(100) NOT NULL,
+    sex VARCHAR(100),
     dateOfBirth DATE,
     dateOfArrival DATE ,
-    isSterilized BOOLEAN NOT NULL,
-    isChipped BOOLEAN NOT NULL, 
-    isAvailableForAdoption BOOLEAN NOT NULL,
-    vaccineList VARCHAR(100) NOT NULL,
-    isAdopted BOOLEAN NOT NULL,
+    isSterilized BOOLEAN,
+    isChipped BOOLEAN, 
+    isAvailableForAdoption BOOLEAN,
+    vaccineList VARCHAR(100),
+    isAdopted BOOLEAN,
     dateOfAdoption DATE,
-    isDead BOOLEAN NOT NULL,
+    isDead BOOLEAN,
     dateOfDeath DATE,
-    additionalInfo TEXT NOT NULL,
+    additionalInfo TEXT,
     dateOfDatabaseEntry DATE NOT NULL,
-    photoUrl VARCHAR(2048) NOT NULL
+    photoUrl VARCHAR(2048)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 
 $classSQL = "CREATE TABLE IF NOT EXISTS `$classTable` (
