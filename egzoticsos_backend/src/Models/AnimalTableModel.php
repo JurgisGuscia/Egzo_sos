@@ -58,7 +58,7 @@ class AnimalTableModel{
                 $data
             );
         } catch (PDOException $e) {
-            error_log("Failed to fetch animal: " . $e->getMessage());
+            error_log("Nepavyko rasti gyvūno: " . $e->getMessage());
             return false;
         }
     }
@@ -95,7 +95,7 @@ class AnimalTableModel{
             return $this->pdo->lastInsertId();
 
         } catch(PDOException $e) {
-            error_log("Adding animal failed: " . $e->getMessage());
+            error_log("Gyvūno pridėti nepavyko: " . $e->getMessage());
             return false;
         }
     }
@@ -145,7 +145,7 @@ class AnimalTableModel{
             return true;
 
         } catch (PDOException $e) {
-            error_log("Editing animal failed: " . $e->getMessage());
+            error_log("Nepavyko atnaujinti gyvūno informacijos: " . $e->getMessage());
             return false;
         }
     }
