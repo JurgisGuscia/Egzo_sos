@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/../Models/AnimalTableController.php";
+require_once __DIR__ . "/../Models/AnimalTableModel.php";
 require_once __DIR__ . "/../DTOs/AnimalDTO.php";
 
 class AnimalTableController{

@@ -24,7 +24,7 @@ class ClassTableControllerIntegrationTest extends TestCase {
     }
 
     protected function populateDatabase(array $rows):void {
-        forEach($rows as $row){
+        foreach($rows as $row){
             $this->pdo->prepare("
                 INSERT INTO {$this->testTable} (name, description) VALUES (:name, :description)
             ")->execute([
