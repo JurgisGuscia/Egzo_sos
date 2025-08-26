@@ -105,8 +105,6 @@ class VaccineTableController {
         $this->respond(200, ["Pavyko" => "Vakcinos duomenys atnaujinti sėkmingai."]);
         return true;
     }
-
-    
 }
 
 ?>
