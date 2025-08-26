@@ -67,14 +67,8 @@ class VaccineTableControllerIntegrationTest extends TestCase {
         $this->pdo->exec("DROP TABLE {$this->testTable}");
 
         $output = $this->captureOutput(fn() => $this->controller->getAll());
-        $this->assertStringContainsString('"Klaida":"Nepavyko gauti vakcinų sąrašo"', $output, "getAll should handle query failure gracefully.");
-        $this->pdo->exec("
-            CREATE TABLE {$this->testTable} (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT,
-                description TEXT
-            );
-        ");
+        $this->assertStringContainsString('"Klaida":"Nepavyko gauti vakcinų sąrašo."', $output, "getAll should handle query failure gracefully.");
+       
     }
 
     #get()
@@ -90,22 +84,22 @@ class VaccineTableControllerIntegrationTest extends TestCase {
 
     public function testGetReturnsErrorOnNotFound() {
         $output = $this->captureOutput(fn() => $this->controller->get(999));
-        $this->assertStringContainsString('"Klaida":"Nepavyko rasti vakcinos"', $output, "get method should return error when nothing is found.");
+        $this->assertStringContainsString('"Klaida":"Nepavyko rasti vakcinos."', $output, "get method should return error when nothing is found.");
     }
-
     #add()
     public function testAddReturnsSuccessful() {
-        $data = ["name" => "Vaccine B", "description" => "Description B"];
+        $data = ["name" => "Vaccine C", "description" => "Description C"];
         $output = $this->captureOutput(fn() => $this->controller->add($data));
         $this->assertStringContainsString('"Pavyko":"Vakcina pridėta sėkmingai."', $output, "add method should return success message.");
     }
 
-    public function testAddReturnsHandlesMissingInput() {
+    public function testAddHandlesMissingInput() {
         $data = ["name" => ""];
         $output = $this->captureOutput(fn() => $this->controller->add($data));
-        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų"', $output, "add method should reject request with missing input.");
+        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų."', $output, "add method should reject request with missing input.");
     }
-    public function testAddReturns409WhenVaccineAlreadyExists() {
+    
+    public function testAddHandlesVaccineAlreadyExists() {
         $this->populateDatabase([
             ["name" => "Vaccine B", "description" => "Description B"]
         ]);
@@ -145,7 +139,7 @@ class VaccineTableControllerIntegrationTest extends TestCase {
     public function testEditReturnsHandlesNotFound() {
         $data = ["name" => "Edited Vaccine", "description" => "Edited Description"];
         $output = $this->captureOutput(fn() => $this->controller->edit(999, $data));
-        $this->assertStringContainsString('"Klaida":"Įrašas neegzistuoja"', $output, "edit method should handle not found error.");
+        $this->assertStringContainsString('"Klaida":"Įrašas neegzistuoja."', $output, "edit method should handle not found error.");
     }
 
     public function testEditHandlesMissingFields() {
@@ -155,7 +149,7 @@ class VaccineTableControllerIntegrationTest extends TestCase {
 
         $data = ["name" => ""];
         $output = $this->captureOutput(fn() => $this->controller->edit(1, $data));
-        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų"', $output, "edit method should reject requests with missing input.");
+        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų."', $output, "edit method should reject requests with missing input.");
     }
 }
 ?>

@@ -8,89 +8,102 @@ class VaccineTableController {
         $this->model = new VaccineTableModel($pdo, $table);
     }
 
+    public function respond($status, $data){
+        http_response_code($status);
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
+
     public function getAll(){
         $vaccineList = $this->model->getAllVaccines();
         if($vaccineList === false){
-            http_response_code(404);
-            echo json_encode(["Klaida" => "Nepavyko gauti vakcinų sąrašo"], JSON_UNESCAPED_UNICODE);
-            return;
-        }else{
-            http_response_code(200);
-            echo json_encode($vaccineList);
+            $this->respond(500, ["Klaida" => "Nepavyko gauti vakcinų sąrašo."]);
+            return false;
         }
+        $this->respond(200, $vaccineList);
+        return true;
     }
 
     public function get($id){
-        $vaccine = $this->model->getVaccine($id);
-        if($vaccine === false){
-            http_response_code(404);
-            echo json_encode(["Klaida" => "Nepavyko rasti vakcinos"], JSON_UNESCAPED_UNICODE);
-            return;
-        }else{
-            http_response_code(200);
-            echo json_encode($vaccine);
+        if(!$id){
+            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            return false;
         }
+
+        $vaccine = $this->model->getVaccine($id);
+
+        if($vaccine === false){
+            $this->respond(404, ["Klaida" => "Nepavyko rasti vakcinos."]);
+            return false;
+        }
+        $this->respond(200, $vaccine);
+        return true;
+        
     }
 
     public function add($data){
         if(empty($data["name"]) || empty($data["description"])) {
-            http_response_code(400);
-            echo json_encode(["Klaida" => "Trūksta būtinų laukų"], JSON_UNESCAPED_UNICODE);
-            return;
+            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            return false;
         }
 
         $id = $this->model->addVaccine($data["name"], $data["description"]);
 
         if($id === false){
-            http_response_code(500);
-            echo json_encode(["Klaida" => "Vakcinos pridėti nepavyko"], JSON_UNESCAPED_UNICODE);
-            return;
-        }else if($id === null){
-                http_response_code(409);
-                echo json_encode(["Klaida" => "Vakcina jau egzistuoja."], JSON_UNESCAPED_UNICODE);
-                return;
-        }else{
-            http_response_code(200);
-            echo json_encode(["Pavyko" => "Vakcina pridėta sėkmingai."], JSON_UNESCAPED_UNICODE);
-        }                   
+            $this->respond(500, ["Klaida" => "Vakcinos pridėti nepavyko."]);
+            return false;
+        }
+        if($id === null){
+            $this->respond(409, ["Klaida" => "Vakcina jau egzistuoja."]);
+            return false;
+        }
+
+        $this->respond(201, ["Pavyko" => "Vakcina pridėta sėkmingai."]);
+        return true;
 
     }
 
     public function delete($id){
+        if(!$id){
+            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            return false;
+        }
         $result = $this->model->deleteVaccine($id);
         if ($result === false) {
-            http_response_code(500);
-            echo json_encode(["Klaida" => "Vakcinos ištrinti nepavyko"], JSON_UNESCAPED_UNICODE);
-            return;
-        }else{
-            http_response_code(200);
-            echo json_encode(["Pavyko" => "Vakcina sėkmingai pašalinta."], JSON_UNESCAPED_UNICODE);
+            $this->respond(500, ["Klaida" => "Vakcinos ištrinti nepavyko."]);
+            return false;
         }
+        $this->respond(200, ["Pavyko" => "Vakcina sėkmingai pašalinta."]);
+        return true;
+        
     }
 
     public function edit($id, $data){
+        if(!$id){
+            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            return false;
+        }
+
         if(empty($data["name"]) || empty($data["description"])) {
-            http_response_code(400);
-            echo json_encode(["Klaida" => "Trūksta būtinų laukų"], JSON_UNESCAPED_UNICODE);
-            return;
+            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            return false;
         }
 
         $entryExists = $this->model->getVaccine($id);
+
         if($entryExists === false){
-            http_response_code(404);
-            echo json_encode(["Klaida" => "Įrašas neegzistuoja"], JSON_UNESCAPED_UNICODE);
-            return;
+            $this->respond(404, ["Klaida" => "Įrašas neegzistuoja."]);
+            return false;
         }
 
         $result = $this->model->editVaccine($id, $data["name"], $data["description"]);
+
         if ($result === false) {
-            http_response_code(500);
-            echo json_encode(["Klaida" => "Vakcinos įrašo atnaujinti nepavyko"], JSON_UNESCAPED_UNICODE);
-            return;
-        }else{
-            http_response_code(200);
-            echo json_encode(["Pavyko" => "Vakcinos duomenys atnaujinti sėkmingai."], JSON_UNESCAPED_UNICODE);
+            $this->respond(500, ["Klaida" => "Vakcinos įrašo atnaujinti nepavyko."]);
+            return false;
         }
+
+        $this->respond(200, ["Pavyko" => "Vakcinos duomenys atnaujinti sėkmingai."]);
+        return true;
     }
 
     
