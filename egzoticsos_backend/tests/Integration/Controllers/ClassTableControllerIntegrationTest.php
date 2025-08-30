@@ -69,7 +69,6 @@ class ClassTableControllerIntegrationTest extends TestCase {
 
         $output = $this->captureOutput(fn() => $this->controller->getAll());
         $this->assertStringContainsString('"Klaida":"Nepavyko gauti klasių sąrašo."', $output, "getAll should handle query failure gracefully.");
-       
     }
 
     #get()
@@ -118,7 +117,7 @@ class ClassTableControllerIntegrationTest extends TestCase {
         ]);
 
         $output = $this->captureOutput(fn() => $this->controller->delete(1));
-        $this->assertStringContainsString('"Pavyko":"Klasė sėkmingai pašalinta."', $output, "detele method should return success message.");
+        $this->assertStringContainsString('"Pavyko":"Klasė sėkmingai pašalinta."', $output, "delete method should return success message.");
     }
 
     public function testDeleteSucceedsIfNotFound() {

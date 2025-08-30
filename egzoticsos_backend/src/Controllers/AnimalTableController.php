@@ -34,7 +34,7 @@ class AnimalTableController{
 
         $animal = $this->model->getAnimal($id);
 
-        if($animal === false){
+        if($animal === null){
             $this->respond(404, ["Klaida" => "Nepavyko rasti gyvūno."]);
             return false;
         }
