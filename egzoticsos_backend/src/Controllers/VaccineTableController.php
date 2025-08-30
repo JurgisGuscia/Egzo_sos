@@ -37,7 +37,6 @@ class VaccineTableController {
         }
         $this->respond(200, $vaccine);
         return true;
-        
     }
 
     public function add($data){
@@ -59,7 +58,6 @@ class VaccineTableController {
 
         $this->respond(201, ["Pavyko" => "Vakcina pridėta sėkmingai."]);
         return true;
-
     }
 
     public function delete($id){
@@ -73,8 +71,7 @@ class VaccineTableController {
             return false;
         }
         $this->respond(200, ["Pavyko" => "Vakcina sėkmingai pašalinta."]);
-        return true;
-        
+        return true;  
     }
 
     public function edit($id, $data){
