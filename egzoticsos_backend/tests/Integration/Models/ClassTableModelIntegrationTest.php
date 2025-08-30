@@ -37,9 +37,9 @@ class ClassTableModelIntegrationTest extends TestCase{
     #getAllClasses
     public function testGetAllClassesReturnsArray(){
         $testData = [
-            ["id" => 1, "name" => "Class A", "description" => "Description A"],
-            ["id" => 2, "name" => "Class B", "description" => "Description B"],
-            ["id" => 3, "name" => "Class C", "description" => "Description C"]
+            ["name" => "Class A", "description" => "Description A"],
+            ["name" => "Class B", "description" => "Description B"],
+            ["name" => "Class C", "description" => "Description C"]
         ];
 
         $this->populateDataBase($testData);
@@ -72,7 +72,7 @@ class ClassTableModelIntegrationTest extends TestCase{
         }
     }
 
-    public function testGetALlClassesPreservesSpecialCharactersInData(){
+    public function testGetAllClassesPreservesSpecialCharactersInData(){
         $testData = [
             ["name" => "Cläss \"A\"", "description" => "Dëscription with ünicode & symbols < >"],
             ["name" => "Class B", "description" => "Normal description"]
@@ -243,14 +243,14 @@ class ClassTableModelIntegrationTest extends TestCase{
         $result2 = $this->model->getClass(1);
         $result3= $this->model->getClass(3);
 
-        $this->assertEquals("EditedClass", $result["name"], "editVClass should update the row.");
+        $this->assertEquals("EditedClass", $result["name"], "editClass should update the row.");
         $this->assertEquals("EditedDescription", $result["description"], "editClass should update the row.");
 
         $this->assertEquals("Class A", $result2["name"], "editClass should not update other rows.");
         $this->assertEquals("Description A", $result2["description"], "editClass should not update other rows.");
 
         $this->assertEquals("Class C", $result3["name"], "editClass should not update other rows.");
-        $this->assertEquals("Description C", $result3["description"], "editVClass should not update other rows.");
+        $this->assertEquals("Description C", $result3["description"], "editClass should not update other rows.");
 
     }
     
@@ -270,6 +270,7 @@ class ClassTableModelIntegrationTest extends TestCase{
         $this->assertEquals(3, count($result), "editClass should not create new entries.");
 
     }
+    
     public function testEditClassAllowsSpecialCharactersInNameAndDescription(){
         $testData = [
                     ["id" => 1, "name" => "Class A", "description" => "Description A"],
