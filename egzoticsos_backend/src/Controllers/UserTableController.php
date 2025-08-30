@@ -44,7 +44,7 @@ class UserTableController{
     public function add($data){
         if(empty($data["email"]) || empty($data["password"]) || empty($data["activationString"]) 
            || empty($data["isActive"]) || empty($data["role"])){
-            $this->respond(400, ["Klaida" => "Trūksta būtinių laukų."]);
+            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
             return false;
         }   
 
@@ -85,7 +85,7 @@ class UserTableController{
 
         if(empty($data["email"]) || empty($data["password"]) || empty($data["activationString"]) 
            || empty($data["isActive"]) || empty($data["role"])){
-            $this->respond(400, ["Klaida" => "Trūksta būtinių laukų."]);
+            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
             return false;
         }  
 

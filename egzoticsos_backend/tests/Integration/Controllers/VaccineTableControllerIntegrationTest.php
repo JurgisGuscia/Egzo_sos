@@ -58,7 +58,7 @@ class VaccineTableControllerIntegrationTest extends TestCase {
         $this->assertStringContainsString('"description":"Description B"', $output, "getAll should include Vaccine B description.");
     }
 
-    public function testGetAllReturnsEmptyArrayForEmptyTable() {
+    public function testGetAllReturnsEmptyArrayFromEmptyTable() {
         $output = $this->captureOutput(fn() => $this->controller->getAll());
         $this->assertEquals('[]', $output, "getAll should return empty array when table is empty.");
     }
@@ -117,7 +117,7 @@ class VaccineTableControllerIntegrationTest extends TestCase {
         ]);
 
         $output = $this->captureOutput(fn() => $this->controller->delete(1));
-        $this->assertStringContainsString('"Pavyko":"Vakcina sėkmingai pašalinta."', $output, "detele method should return success message.");
+        $this->assertStringContainsString('"Pavyko":"Vakcina sėkmingai pašalinta."', $output, "delete method should return success message.");
     }
 
     public function testDeleteSucceedsIfNotFound() {
