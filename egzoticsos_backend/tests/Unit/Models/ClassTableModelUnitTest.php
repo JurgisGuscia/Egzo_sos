@@ -9,7 +9,9 @@ class ClassTableModelUnitTest extends TestCase{
         $testTable = "mockTable";
 
         $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable} ORDER BY id")->will($this->throwException(new PDOException("Database error")));
+        $pdoMock->expects($this->once())->method("prepare")
+        ->with("SELECT * FROM {$testTable} ORDER BY id")
+        ->will($this->throwException(new PDOException("Database error")));
 
         $model = new ClassTableModel($pdoMock, $testTable);
 
@@ -23,7 +25,9 @@ class ClassTableModelUnitTest extends TestCase{
         $testTable = "mockTable";
         $testID = 1;
         $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("SELECT * FROM {$testTable} WHERE id = :id LIMIT 1")->will($this->throwException(new PDOException("Database error")));
+        $pdoMock->expects($this->once())->method("prepare")
+        ->with("SELECT * FROM {$testTable} WHERE id = :id LIMIT 1")
+        ->will($this->throwException(new PDOException("Database error")));
 
         $model = new ClassTableModel($pdoMock, $testTable);
 
@@ -54,7 +58,6 @@ class ClassTableModelUnitTest extends TestCase{
         $result = $model->addClass("testName", "testDescription");
 
         $this->assertFalse($result, "addClass should return false when a PDOException occurs");
-
     }
 
 
@@ -63,7 +66,9 @@ class ClassTableModelUnitTest extends TestCase{
         $testTable = "mockTable";
         $testID = 1;
         $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("DELETE FROM {$testTable} WHERE id = :id")->will($this->throwException(new PDOException("Database error")));
+        $pdoMock->expects($this->once())->method("prepare")
+        ->with("DELETE FROM {$testTable} WHERE id = :id")
+        ->will($this->throwException(new PDOException("Database error")));
 
         $model = new ClassTableModel($pdoMock, $testTable);
 
@@ -76,7 +81,9 @@ class ClassTableModelUnitTest extends TestCase{
         $testTable = "mockTable";
         $testID = 1;
         $pdoMock = $this->createMock(PDO::class);
-        $pdoMock->expects($this->once())->method("prepare")->with("UPDATE {$testTable} SET name = :name, description = :description WHERE id = :id")->will($this->throwException(new PDOException("Database error")));
+        $pdoMock->expects($this->once())->method("prepare")
+        ->with("UPDATE {$testTable} SET name = :name, description = :description WHERE id = :id")
+        ->will($this->throwException(new PDOException("Database error")));
 
         $model = new ClassTableModel($pdoMock, $testTable);
 
