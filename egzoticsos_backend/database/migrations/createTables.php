@@ -4,6 +4,7 @@ require "../config/connectToDatabase.php";
 $animalTable = $_ENV["ANIMAL_TABLE"] ?? "animals2";
 $classTable = $_ENV["CLASS_TABLE"] ?? "classes2";
 $vaccineTable = $_ENV["VACCINE_TABLE"] ?? "vaccines2";
+$userTable = $_ENV["USER_TABLE"] ?? "users2";
 
 $animalSQL = "CREATE TABLE IF NOT EXISTS `$animalTable` (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -30,13 +31,22 @@ $classSQL = "CREATE TABLE IF NOT EXISTS `$classTable` (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(2000)
-)";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 
 $vaccineSQL = "CREATE TABLE IF NOT EXISTS `$vaccineTable` (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description VARCHAR(2000)
-)";
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
+$userSQL = "CREATE TABLE IF NOT EXISTS `$userTable` (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    activationString VARCHAR(400) NOT NULL,
+    isActive BOOLEAN NOT NULL,
+    role  VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 
 $animalTableExistsCheck = $pdo->query("SHOW TABLES LIKE '$animalTable'");
 if($animalTableExistsCheck->rowCount() > 0){

@@ -71,7 +71,6 @@ class ClassTableModel{
             $stmt->execute([":name" => $name, ":description" => $description, ":id" => $id]);
 
              if ($stmt->rowCount() === 0) {
-            // No rows affected, either ID not found or data was the same
                 return false;
             }
             

@@ -72,6 +72,10 @@ $router->put('/classes/(\d+)', function($id) use ($classController) {
 });
 
 
+# user routes
+
+
+
 $router->run();
 
 ?>
