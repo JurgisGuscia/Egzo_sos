@@ -54,13 +54,6 @@ class UserTableControllerIntegrationTest extends TestCase{
         }
     } 
 
-    // $testData = [
-    //         ["email" => "user1@mail.com", "password" => "dkife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"],
-    //         ["email" => "user2@mail.com", "password" => "fasfg", "activationString" => "fsagf2342fs", "isActive" => 0, "role" => "admin"],
-    //         ["email" => "user3@mail.com", "password" => "rewga", "activationString" => "hnbcxgytty4", "isActive" => 1, "role" => "admin"]
-    //     ];   
-
-    
     #getAllUsers()
     public function testGetAllUsersReturnsData(){
          $testData = [
@@ -105,26 +98,6 @@ class UserTableControllerIntegrationTest extends TestCase{
     public function testGetReturnsErrorOnNotFound() {
         $output = $this->captureOutput(fn() => $this->controller->get(999));
         $this->assertStringContainsString('"Klaida":"Nepavyko rasti vartotojo."', $output, "get method should return error when nothing is found.");
-    }
-
-    #addUser($data)
-    public function testAddReturnsSuccessful() {
-        $testData = ["email" => "user1@mail.com", "password" => "dkife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Pavyko":"Vartotojas pridėtas sėkmingai."', $output, "add method should return success message.");
-    }
-
-    public function testAddHandlesMissingInput() {
-        $testData = ["email" => "user1@mail.com", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų."', $output, "add method should reject request with missing input.");
-    }
-    
-    public function testAddHandlesVaccineAlreadyExists() {
-        $testData = ["email" => "user1@mail.com", "password" => "dkife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
-        $this->populateDatabase([$testData]);
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Klaida":"Vartotojas jau egzistuoja."', $output, "add method should reject if user already exists.");
     }
 
     #deleteUser($id)

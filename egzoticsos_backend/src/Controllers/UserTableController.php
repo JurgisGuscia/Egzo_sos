@@ -41,28 +41,6 @@ class UserTableController{
         return true;
     }
 
-    public function add($data){
-        if(empty($data["email"]) || empty($data["password"]) || empty($data["activationString"]) 
-           || empty($data["isActive"]) || empty($data["role"])){
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
-            return false;
-        }   
-
-        $id = $this->model->addUser($data);
-
-        if($id === false){
-            $this->respond(500, ["Klaida" => "Vartotojo pridėti nepavyko."]);
-            return false;
-        }
-        if($id === null){
-            $this->respond(409, ["Klaida" => "Vartotojas jau egzistuoja."]);
-            return false;
-        }
-
-        $this->respond(201, ["Pavyko" => "Vartotojas pridėtas sėkmingai."]);
-        return true;
-    }
-
     public function delete($id){
         if(!$id){
             $this->respond(400, ["Klaida" => "Nenurodytas vartotojo ID."]);
