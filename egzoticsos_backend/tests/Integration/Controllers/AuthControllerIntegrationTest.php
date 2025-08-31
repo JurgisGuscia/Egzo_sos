@@ -1,5 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
+require_once __DIR__ . "/../../../src/Services/AuthService.php";
 require_once __DIR__ . "/../../../src/Controllers/AuthController.php";
 require_once __DIR__ . "/../../../src/Models/UserTableModel.php";
 
@@ -7,6 +8,7 @@ class AuthControllerIntegrationTest extends TestCase{
     protected PDO $pdo;
     protected string $testTable = "testTable";
     protected AuthController $controller;
+    protected AuthService $authService;
 
     protected function setUp():void{
         #Create in memory sqlite
@@ -22,7 +24,8 @@ class AuthControllerIntegrationTest extends TestCase{
                 role  TEXT
             );
         ");
-        $this->controller = new AuthController($this->pdo, $this->testTable);
+        $this->authService = new AuthService();
+        $this->controller = new AuthController($this->pdo, $this->testTable, $this->authService);
     }
 
     protected function populateDatabase(array $rows):void{
@@ -56,23 +59,37 @@ class AuthControllerIntegrationTest extends TestCase{
 
 
     #addUser($data)
-    public function testAddReturnsSuccessful() {
-        $testData = ["email" => "user1@mail.com", "password" => "dkife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Pavyko":"Vartotojas pridėtas sėkmingai."', $output, "add method should return success message.");
+    public function testRegisterReturnsSuccessful() {
+        $testData = ["email" => "user1@mail.com", "password" => "dkfdsafdsaife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
+        $output = $this->captureOutput(fn() => $this->controller->register($testData));
+        $this->assertStringContainsString('"Pavyko":"Vartotojas užregistruotas."', $output, "register method should return success message.");
     }
 
-    public function testAddHandlesMissingInput() {
+    public function testRegisterHandlesMissingInput() {
         $testData = ["email" => "user1@mail.com", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų."', $output, "add method should reject request with missing input.");
+        $output = $this->captureOutput(fn() => $this->controller->register($testData));
+        $this->assertStringContainsString('"Klaida":"Trūksta būtinų laukų."', $output, "register method should reject request with missing input.");
     }
     
-    public function testAddHandlesVaccineAlreadyExists() {
-        $testData = ["email" => "user1@mail.com", "password" => "dkife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
+    public function testRegisterHandlesVaccineAlreadyExists() {
+        $testData = ["email" => "user1@mail.com", "password" => "dkfdsafdsaife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
         $this->populateDatabase([$testData]);
-        $output = $this->captureOutput(fn() => $this->controller->add($testData));
-        $this->assertStringContainsString('"Klaida":"Vartotojas jau egzistuoja."', $output, "add method should reject if user already exists.");
+        $output = $this->captureOutput(fn() => $this->controller->register($testData));
+        $this->assertStringContainsString('"Klaida":"Vartotojas jau egzistuoja."', $output, "register method should reject if user already exists.");
+    }
+
+    public function testRegisterHashesPassword(){
+        $testData = ["email" => "user1@mail.com", "password" => "dkfdsafdsaife", "activationString" => "gklgngfdsgs", "isActive" => 1, "role" => "admin"];
+        $output = $this->captureOutput(fn() => $this->controller->register($testData));
+
+        $stmt = $this->pdo->prepare("SELECT * FROM {$this->testTable} WHERE email = :email");
+        $stmt->execute([':email' => $testData['email']]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Assert password is hashed
+        $this->assertNotEquals($testData['password'], $user['password']);
+        $this->assertTrue(password_verify($testData['password'], $user['password']));
+
     }
 }
 ?>

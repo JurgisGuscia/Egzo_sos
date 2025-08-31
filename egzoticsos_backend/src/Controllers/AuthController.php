@@ -21,6 +21,10 @@ class AuthController{
         try {
             $preparedData = $this->authService->prepareUser($data);
             $id = $this->model->addUser($preparedData);
+            if($id === null){
+                $this->respond(409, ["Klaida" => "Vartotojas jau egzistuoja."]);
+                return false;
+            }
             $this->respond(201, ["Pavyko" => "Vartotojas užregistruotas.", "id" => $id]);
         } catch (Exception $e) {
             $this->respond(400, ["Klaida" => $e->getMessage()]);
