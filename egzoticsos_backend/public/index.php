@@ -31,14 +31,24 @@ $router->get("/animals", fn() => $animalController->getAll());
 $router->get("/animals/(\d+)", fn($id) => $animalController->get((int)$id));
 
 $router->post("/animals", function() use ($animalController) {
-    $data = json_decode(file_get_contents("php://input"), true); 
+    $data = json_decode(file_get_contents("php://input"), true);
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    }  
     $animalController->add($data);
 });
 
 $router->delete("/animals/(\d+)", fn($id) => $animalController->delete((int)$id));
 
 $router->put("/animals/(\d+)", function($id) use ($animalController) {
-    $data = json_decode(file_get_contents("php://input"), true); 
+    $data = json_decode(file_get_contents("php://input"), true);
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    }  
     $animalController->edit((int)$id, $data);
 });
 
@@ -48,7 +58,12 @@ $router->get("/vaccines", fn() => $vaccineController->getAll());
 $router->get("/vaccines/(\d+)", fn($id) => $vaccineController->get((int)$id));
 
 $router->post("/vaccines", function() use ($vaccineController) {
-    $data = json_decode(file_get_contents("php://input"), true); 
+    $data = json_decode(file_get_contents("php://input"), true);
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    }  
     $vaccineController->add($data);
 });
 
@@ -56,6 +71,11 @@ $router->delete("/vaccines/(\d+)", fn($id) => $vaccineController->delete((int)$i
 
 $router->put("/vaccines/(\d+)", function($id) use ($vaccineController) {
     $data = json_decode(file_get_contents("php://input"), true); 
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    } 
     $vaccineController->edit((int)$id, $data);
 });
 
@@ -66,12 +86,22 @@ $router->get("/classes/(\d+)", fn($id) => $classController->get((int)$id));
 
 $router->post("/classes", function() use ($classController) {
     $data = json_decode(file_get_contents("php://input"), true); 
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    } 
     $classController->add($data);
 });
 
 $router->delete("/classes/(\d+)", fn($id) => $classController->delete((int)$id));
 
 $router->put("/classes/(\d+)", function($id) use ($classController) {
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    } 
     $data = json_decode(file_get_contents("php://input"), true); 
     $classController->edit((int)$id, $data);
 });
@@ -85,18 +115,22 @@ $router->delete("/users/(\d+)", fn($id) => $userController->delete($id));
 
 $router->put("/users/(\d+)", function($id) use ($userController) {
     $data = json_decode(file_get_contents("php://input"), true); 
+    if (!$data) {
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    } 
     $userController->edit((int)$id, $data);
 });
 
 # auth routes
 $router->post("/register", function() use ($authController){
     $data = json_decode(file_get_contents("php://input"), true);
-    $data = json_decode(file_get_contents("php://input"), true);
     if (!$data) {
         http_response_code(400);
         echo json_encode(["Klaida" => "Netinkamas JSON"]);
         exit;
-} 
+    } 
     $authController->register($data);
 });
 
