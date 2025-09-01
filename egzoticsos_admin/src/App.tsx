@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.scss';
+import Login from './pages/main/Login';
 
-function App() {
+const App:React.FC = () => {
   return (
-    <div className="App">
-      
+    <div className={styles.App}>
+      <Login />
     </div>
   );
 }
