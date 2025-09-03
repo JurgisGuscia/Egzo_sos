@@ -21,10 +21,10 @@ class UserTableModel{
         }
     }
 
-    public function getUser($id){
+    public function getUser($email){
         try{
-            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE {$this->primaryKey} = :id LIMIT 1");
-            $stmt->execute([":id" => $id]);
+            $stmt = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE email = :email LIMIT 1");
+            $stmt->execute([":email" => $email]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             error_log("Vartojo rasti nepavyko: " . $e->getMessage());

@@ -17,7 +17,7 @@ class UserTableController{
     public function getAll(){
         $userList = $this->model->getAllUsers();
         if($userList === false){
-            $this->respond(500, ["Klaida" => "Nepavyko gauti vartotojų sąrašo."]);
+            $this->respond(500, ["Response" => "Nepavyko gauti vartotojų sąrašo."]);
             return false;
         }
         $this->respond(200, $userList);
@@ -26,14 +26,14 @@ class UserTableController{
 
     public function get($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vartotojo ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vartotojo ID."]);
             return false;
         }
 
         $user = $this->model->getUser($id);
 
         if($user === false){
-            $this->respond(404, ["Klaida" => "Nepavyko rasti vartotojo."]);
+            $this->respond(404, ["Response" => "Nepavyko rasti vartotojo."]);
             return false;
         }
 
@@ -43,45 +43,45 @@ class UserTableController{
 
     public function delete($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vartotojo ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vartotojo ID."]);
             return false;
         }
         $result = $this->model->deleteUser($id);
         if ($result === false) {
-            $this->respond(500, ["Klaida" => "Vartotojo ištrinti nepavyko."]);
+            $this->respond(500, ["Response" => "Vartotojo ištrinti nepavyko."]);
             return false;
         }
-        $this->respond(200, ["Pavyko" => "Vartotojas sėkmingai pašalintas."]);
+        $this->respond(200, ["Response" => "Vartotojas sėkmingai pašalintas."]);
         return true;  
     }
 
     public function edit($id, $data){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vartotojo ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vartotojo ID."]);
             return false;
         }
 
         if(empty($data["email"]) || empty($data["password"]) || empty($data["activationString"]) 
            || empty($data["isActive"]) || empty($data["role"])){
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }  
 
         $userExists = $this->model->getUser($id);
 
         if($userExists === false){
-            $this->respond(404, ["Klaida" => "Įrašas neegzistuoja."]);
+            $this->respond(404, ["Response" => "Įrašas neegzistuoja."]);
             return false;
         }
 
         $result = $this->model->editUser($id, $data);
 
         if ($result === false) {
-            $this->respond(500, ["Klaida" => "Vartotojo įrašo atnaujinti nepavyko."]);
+            $this->respond(500, ["Response" => "Vartotojo įrašo atnaujinti nepavyko."]);
             return false;
         }
 
-        $this->respond(200, ["Pavyko" => "Vartotojo duomenys atnaujinti sėkmingai."]);
+        $this->respond(200, ["Response" => "Vartotojo duomenys atnaujinti sėkmingai."]);
         return true;
     }
 }

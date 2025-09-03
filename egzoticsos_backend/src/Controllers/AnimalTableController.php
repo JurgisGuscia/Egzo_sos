@@ -18,7 +18,7 @@ class AnimalTableController{
         $animalList = $this->model->getAllAnimals();
 
         if($animalList === false){
-            $this->respond(404, ["Klaida" => "Nepavyko gauti gyvūnų sąrašo."]);
+            $this->respond(404, ["Response" => "Nepavyko gauti gyvūnų sąrašo."]);
             return false;
         }
 
@@ -28,14 +28,14 @@ class AnimalTableController{
 
     public function get($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas gyvūno ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas gyvūno ID."]);
             return false;
         }
 
         $animal = $this->model->getAnimal($id);
 
         if($animal === null){
-            $this->respond(404, ["Klaida" => "Nepavyko rasti gyvūno."]);
+            $this->respond(404, ["Response" => "Nepavyko rasti gyvūno."]);
             return false;
         }
 
@@ -45,7 +45,7 @@ class AnimalTableController{
 
     public function add($data){
         if(empty($data["name"]) || empty($data["breed"]) || empty($data["class"]) || empty($data["dateOfDatabaseEntry"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
@@ -54,47 +54,47 @@ class AnimalTableController{
         $result = $this->model->addAnimal($animalDTO);
 
         if($result === false){
-            $this->respond(500, ["Klaida" => "Gyvūno pridėti nepavyko."]);
+            $this->respond(500, ["Response" => "Gyvūno pridėti nepavyko."]);
             return false;
         }
 
-        $this->respond(201, ["Pavyko" => "Gyvūnas pridėtas sėkmingai."]);
+        $this->respond(201, ["Response" => "Gyvūnas pridėtas sėkmingai."]);
         return true;
     }
 
     public function delete($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas gyvūno ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas gyvūno ID."]);
             return false;
         }
 
         $result = $this->model->deleteAnimal($id);
 
         if($result === false){
-            $this->respond(500, ["Klaida" => "Gyvūno ištrinti nepavyko."]);
+            $this->respond(500, ["Response" => "Gyvūno ištrinti nepavyko."]);
             return false;
         }
 
-        $this->respond(200, ["Pavyko" => "Gyvūnas sėkmingai pašalintas."]);
+        $this->respond(200, ["Response" => "Gyvūnas sėkmingai pašalintas."]);
         return true;
     }
 
     public function edit($id, $data){
         #http reuqueste privalo buti nurodyti: name, breed, class ir dateOfDatabaseEntry. Jie reikalingi DTO konstruktoriui.
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas gyvūno ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas gyvūno ID."]);
             return false;
         }
 
         if(empty($data["name"]) || empty($data["breed"]) || empty($data["class"]) || empty($data["dateOfDatabaseEntry"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
         $entryExists = $this->model->getAnimal($id);
 
         if($entryExists === false){
-            $this->respond(404, ["Klaida" => "Įrašas neegzistuoja."]);
+            $this->respond(404, ["Response" => "Įrašas neegzistuoja."]);
             return false;
         }
 
@@ -103,11 +103,11 @@ class AnimalTableController{
         $result = $this->model->editAnimal($id, $animalDTO);
 
         if($result === false){
-            $this->respond(500, ["Klaida" => "Gyvūno įrašo atnaujinti nepavyko."]);
+            $this->respond(500, ["Response" => "Gyvūno įrašo atnaujinti nepavyko."]);
             return false;
         }
 
-        $this->respond(200, ["Pavyko" => "Gyvūno duomenys atnaujinti sėkmingai."]);
+        $this->respond(200, ["Response" => "Gyvūno duomenys atnaujinti sėkmingai."]);
         return true;
     }
 }

@@ -16,7 +16,7 @@ class ClassTableController{
     public function getAll(){
         $classList = $this->model->getAllClasses();
         if($classList === false){
-            $this->respond(404, ["Klaida" => "Nepavyko gauti klasių sąrašo."]);
+            $this->respond(404, ["Response" => "Nepavyko gauti klasių sąrašo."]);
             return false;
         }
         $this->respond(200, $classList);
@@ -25,14 +25,14 @@ class ClassTableController{
 
     public function get($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas klasės ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas klasės ID."]);
             return false;
         }
 
         $class = $this->model->getClass($id);
 
         if($class === false){
-            $this->respond(404, ["Klaida" => "Nepavyko rasti klasės."]);
+            $this->respond(404, ["Response" => "Nepavyko rasti klasės."]);
             return false;
         }
         $this->respond(200, $class);
@@ -41,68 +41,68 @@ class ClassTableController{
 
     public function add($data){
         if(empty($data["name"]) || empty($data["description"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
         $id = $this->model->addClass($data["name"], $data["description"]);
         
         if($id === null){
-            $this->respond(409, ["Klaida" => "Klasė jau egzistuoja."]);
+            $this->respond(409, ["Response" => "Klasė jau egzistuoja."]);
             return false;
         }
 
         if($id === false){
-            $this->respond(500, ["Klaida" => "Klasės pridėti nepavyko."]);
+            $this->respond(500, ["Response" => "Klasės pridėti nepavyko."]);
             return false;
         }
 
-        $this->respond(201, ["Pavyko" => "Klasė pridėta sėkmingai."]);
+        $this->respond(201, ["Response" => "Klasė pridėta sėkmingai."]);
         return true;
     }
 
     public function delete($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas klasės ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas klasės ID."]);
             return false;
         }
 
         $result = $this->model->deleteClass($id);
 
         if ($result === false) {
-            $this->respond(500, ["Klaida" => "Klasės ištrinti nepavyko."]);
+            $this->respond(500, ["Response" => "Klasės ištrinti nepavyko."]);
             return false;
         }
-        $this->respond(200, ["Pavyko" => "Klasė sėkmingai pašalinta."]);
+        $this->respond(200, ["Response" => "Klasė sėkmingai pašalinta."]);
         return true;
     }
 
     public function edit($id, $data){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas klasės ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas klasės ID."]);
             return false;
         }
 
         if(empty($data["name"]) || empty($data["description"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
         $entryExists = $this->model->getClass($id);
 
         if($entryExists === false){
-            $this->respond(404, ["Klaida" => "Įrašas neegzistuoja."]);
+            $this->respond(404, ["Response" => "Įrašas neegzistuoja."]);
             return false;
         }
 
         $result = $this->model->editClass($id, $data["name"], $data["description"]);
 
         if($result === false){
-            $this->respond(500, ["Klaida" => "Klasės įrašo atnaujinti nepavyko."]);
+            $this->respond(500, ["Response" => "Klasės įrašo atnaujinti nepavyko."]);
             return false;
         }
 
-        $this->respond(200, ["Pavyko" => "Klasės duomenys atnaujinti sėkmingai."]);
+        $this->respond(200, ["Response" => "Klasės duomenys atnaujinti sėkmingai."]);
         return true;
     }
 }

@@ -16,7 +16,7 @@ class VaccineTableController {
     public function getAll(){
         $vaccineList = $this->model->getAllVaccines();
         if($vaccineList === false){
-            $this->respond(500, ["Klaida" => "Nepavyko gauti vakcinų sąrašo."]);
+            $this->respond(500, ["Response" => "Nepavyko gauti vakcinų sąrašo."]);
             return false;
         }
         $this->respond(200, $vaccineList);
@@ -25,14 +25,14 @@ class VaccineTableController {
 
     public function get($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vakcinos ID."]);
             return false;
         }
 
         $vaccine = $this->model->getVaccine($id);
 
         if($vaccine === false){
-            $this->respond(404, ["Klaida" => "Nepavyko rasti vakcinos."]);
+            $this->respond(404, ["Response" => "Nepavyko rasti vakcinos."]);
             return false;
         }
         $this->respond(200, $vaccine);
@@ -41,65 +41,65 @@ class VaccineTableController {
 
     public function add($data){
         if(empty($data["name"]) || empty($data["description"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
         $id = $this->model->addVaccine($data["name"], $data["description"]);
 
         if($id === false){
-            $this->respond(500, ["Klaida" => "Vakcinos pridėti nepavyko."]);
+            $this->respond(500, ["Response" => "Vakcinos pridėti nepavyko."]);
             return false;
         }
         if($id === null){
-            $this->respond(409, ["Klaida" => "Vakcina jau egzistuoja."]);
+            $this->respond(409, ["Response" => "Vakcina jau egzistuoja."]);
             return false;
         }
 
-        $this->respond(201, ["Pavyko" => "Vakcina pridėta sėkmingai."]);
+        $this->respond(201, ["Response" => "Vakcina pridėta sėkmingai."]);
         return true;
     }
 
     public function delete($id){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vakcinos ID."]);
             return false;
         }
         $result = $this->model->deleteVaccine($id);
         if ($result === false) {
-            $this->respond(500, ["Klaida" => "Vakcinos ištrinti nepavyko."]);
+            $this->respond(500, ["Response" => "Vakcinos ištrinti nepavyko."]);
             return false;
         }
-        $this->respond(200, ["Pavyko" => "Vakcina sėkmingai pašalinta."]);
+        $this->respond(200, ["Response" => "Vakcina sėkmingai pašalinta."]);
         return true;  
     }
 
     public function edit($id, $data){
         if(!$id){
-            $this->respond(400, ["Klaida" => "Nenurodytas vakcinos ID."]);
+            $this->respond(400, ["Response" => "Nenurodytas vakcinos ID."]);
             return false;
         }
 
         if(empty($data["name"]) || empty($data["description"])) {
-            $this->respond(400, ["Klaida" => "Trūksta būtinų laukų."]);
+            $this->respond(400, ["Response" => "Trūksta būtinų laukų."]);
             return false;
         }
 
         $entryExists = $this->model->getVaccine($id);
 
         if($entryExists === false){
-            $this->respond(404, ["Klaida" => "Įrašas neegzistuoja."]);
+            $this->respond(404, ["Response" => "Įrašas neegzistuoja."]);
             return false;
         }
 
         $result = $this->model->editVaccine($id, $data["name"], $data["description"]);
 
         if ($result === false) {
-            $this->respond(500, ["Klaida" => "Vakcinos įrašo atnaujinti nepavyko."]);
+            $this->respond(500, ["Response" => "Vakcinos įrašo atnaujinti nepavyko."]);
             return false;
         }
 
-        $this->respond(200, ["Pavyko" => "Vakcinos duomenys atnaujinti sėkmingai."]);
+        $this->respond(200, ["Response" => "Vakcinos duomenys atnaujinti sėkmingai."]);
         return true;
     }
 }

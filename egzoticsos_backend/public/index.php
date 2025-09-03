@@ -10,7 +10,7 @@ require_once __DIR__ . "/../src/Controllers/UserTableController.php";
 require_once __DIR__ . "/../src/Controllers/AuthController.php";
 require_once __DIR__ . "/../src/Services/AuthService.php";
 
-$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../config");
 $dotenv->load();
 
 $animalController = new AnimalTableController($pdo, $_ENV["ANIMAL_TABLE"]);
@@ -135,7 +135,18 @@ $router->post("/register", function() use ($authController){
 });
 
 // login route to come
-
+$router->post("/login", function() use ($authController){
+    header('Content-Type: application/json');
+    $data = json_decode(file_get_contents("php://input"), true);
+    if(!$data){
+        http_response_code(400);
+        echo json_encode(["Klaida" => "Netinkamas JSON"]);
+        exit;
+    }
+    $result = $authController->login($data);
+    echo $result;
+    
+});
 
 $router->run();
 

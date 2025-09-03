@@ -1,5 +1,5 @@
 <?php
-require "../config/connectToDatabase.php";
+require "../../config/connectToDatabase.php";
 
 $animalTable = $_ENV["ANIMAL_TABLE"] ?? "animals2";
 $classTable = $_ENV["CLASS_TABLE"] ?? "classes2";
@@ -87,6 +87,17 @@ if($vaccineTableExistsCheck->rowCount() > 0){
     }
 }
 
-
+$userTableExistsCheck = $pdo->query("SHOW TABLES LIKE '$userTable'");
+if($userTableExistsCheck->rowCount() > 0){
+    error_log("$userTable lentelė jau egzistuoja, praleidžiama...");
+}else{
+    try{
+        $pdo->exec($userSQL);
+        error_log('Vartotojų lentelė sėkmingai sukurta.');
+    }catch(PDOException $e){
+        error_log('Įvyko klaida: ' . $e->getMessage());  
+        exit('Kuriant vartotojų lentelę, įvyko klaida.');
+    }
+}
 
 ?>
