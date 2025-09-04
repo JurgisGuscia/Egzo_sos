@@ -1,11 +1,16 @@
 import React from 'react';
-import styles from './App.module.scss';
-import Login from './pages/main/Login';
+import { Routes, Route, Navigate } from "react-router-dom";
+import styles from "./App.module.scss";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 const App:React.FC = () => {
   return (
     <div className={styles.App}>
-      <Login />
+      <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+      </Routes>
     </div>
   );
 }

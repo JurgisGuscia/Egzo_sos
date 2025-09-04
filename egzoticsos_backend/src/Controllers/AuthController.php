@@ -39,13 +39,11 @@ class AuthController{
                 $this->respond(404, ["Response" => "Vartotojas neegzistuoja."]);
                 return false;
             }
-            if($user["password"] === $data["password"]){
+            if(password_verify($data["password"], $user["password"])){
                 $this->respond(200, ["Response" => "Prisijungta."]);
             }else{
                 $this->respond(404, ["Response" => "Slaptažodis neteisingas."]);
             }
-            
-            
 
         }catch(Exception $e){
             $this->respond(400, ["Response" => $e->getMessage()]);
