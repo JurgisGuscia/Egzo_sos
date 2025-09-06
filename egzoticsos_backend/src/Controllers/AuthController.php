@@ -40,15 +40,46 @@ class AuthController{
                 return false;
             }
             if(password_verify($data["password"], $user["password"])){
-                $this->respond(200, ["Response" => "Prisijungta."]);
+                if($user["isActive"] === 1){
+                    $token = bin2hex(random_bytes(32));
+                    session_start();
+                    $_SESSION["token"] = $token;
+                    setcookie(
+                        "auth_token",
+                        $token,
+                        [
+                            "expires" => time() + 3600,
+                            "path" => "/",
+                            "httponly" => true,
+                            "secure" => true,
+                            "samesite" => "Strict"
+                        ]
+                    );
+                    $this->respond(200, ["Response" => "Prisijungta."]);
+                }else{
+                    $this->respond(400, ["Response" => "Paskyra neaktyvuota."]);        
+                }               
             }else{
-                $this->respond(404, ["Response" => "Slaptažodis neteisingas."]);
+                $this->respond(401, ["Response" => "Slaptažodis neteisingas."]);
             }
 
         }catch(Exception $e){
             $this->respond(400, ["Response" => $e->getMessage()]);
         }
     }
+
+    public function checkAuth(){
+        session_start();
+        $tokenFromCookie = $_COOKIE['auth_token'] ?? null;
+        $tokenInSession = $_SESSION['token'] ?? null;
+        if (!$tokenFromCookie || $tokenFromCookie !== $tokenInSession) {
+            $this->respond(401, ["Response" => "Neleidžiama"]);
+            exit;
+        }
+
+        $this->respond(200, ["Response" => "Leidžiama"]);
+    }
+
 }
 ?>
 

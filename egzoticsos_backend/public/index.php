@@ -134,7 +134,6 @@ $router->post("/register", function() use ($authController){
     $authController->register($data);
 });
 
-// login route to come
 $router->post("/login", function() use ($authController){
     header('Content-Type: application/json');
     $data = json_decode(file_get_contents("php://input"), true);
@@ -147,6 +146,8 @@ $router->post("/login", function() use ($authController){
     echo $result;
     
 });
+
+$router->get("/checkAuth", fn() => $authController->checkAuth());
 
 $router->run();
 
