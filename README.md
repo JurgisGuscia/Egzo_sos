@@ -2,14 +2,3 @@
 
 Reworko figma: https://www.figma.com/design/Ub8rT9bIueL0tOoxA0VV0p/egzoticsos?node-id=26-65&t=m4DpYCjMrAQ4u6H1-0  
 Pahostinta demo versija: https://egzoticsos.nyxie.lt/
-
-Info apie esama frontend situacija frontend folderio readme faile.  
-Backend dar nepradeta, pirma manau baigiam su frontend kiek galim.
-
-Nebaigta:  
-Prijungti paraiskos savanorystei forma prie BD  
-Veiklos ataskaitos, sukeli realias ataskaitas  
-Kontaktai prijungti susisiekimo forma prie DB  
-Gyvunu prieziuros komponentai  
-Responsiveness  
-phone App
