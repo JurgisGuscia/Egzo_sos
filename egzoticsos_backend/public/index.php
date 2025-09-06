@@ -149,6 +149,8 @@ $router->post("/login", function() use ($authController){
 
 $router->get("/checkAuth", fn() => $authController->checkAuth());
 
+$router->get("/logOut", fn() => $authController->logOut());
+
 $router->run();
 
 ?>

@@ -3,6 +3,10 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none;  
+    -ms-user-select: none;  
 }
 
 .App{

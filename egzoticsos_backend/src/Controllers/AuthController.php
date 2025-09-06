@@ -80,6 +80,33 @@ class AuthController{
         $this->respond(200, ["Response" => "Leidžiama"]);
     }
 
+    public function logOut(){
+        session_start();
+        setcookie(
+            "auth_token",
+            "",
+            [
+                "expires" => time() - 3600,
+                "path" => "/",
+                "httponly" => true,
+                "secure" => true,
+                "samesite" => "Strict"
+            ]
+        );
+        if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    
+        unset($_COOKIE["auth_token"]);
+        $_SESSION = [];
+        session_regenerate_id(true);
+        session_destroy();
+        $this->respond(200, ["Response" => "Atjungta."]);
+    }
 }
 ?>
 
